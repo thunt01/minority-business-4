@@ -10,9 +10,11 @@ app.use(express.json());
 
 const mysql = require('mysql');
 const con = mysql.createConnection({
-    host: "my-node-database-instance-1.c76siigws906.us-east-2.rds.amazonaws.com",
+    host: "minoritybusiness.c76siigws906.us-east-2.rds.amazonaws.com",
     user: "admin",
-    password: "15112001"
+    password: "tuchus-xuknyS-2gyhna",
+    database: "main",
+    port: "3306"
 });
 
 app.post('/users', (req, res) => {
