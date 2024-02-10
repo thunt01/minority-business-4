@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
-  const [message, setMessage] = useState("");
+import Home from './components/Home'
+import About from './components/About'
+import Contact from './components/Contact'
+import Signup from "./components/Signup"
+import Nav from './components/Nav'
 
-  useEffect(() => {
-    fetch('/users')
-      .then((res) => res.json())
-      .then((data) => setMessage(data.result));
-  }, []);
-  
-  return (
-    <div className="App">
-      <h1>
-        {JSON.stringify(message)}
-      </h1>
-    </div>
-  );
+const App = () => {
+    return (
+        <div>
+            <Nav />
+            <Routes>
+                <Route path="/" element={ <Home /> }/>
+                <Route path="/about" element={ <About /> }/>
+                <Route path="/contact" element={ <Contact /> }/>
+                <Route path="/signup" element={ <Signup /> }/>
+            </Routes>
+        </div>
+    )    
 }
 
-export default App
+export default App;
