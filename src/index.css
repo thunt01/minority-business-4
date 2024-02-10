@@ -1,0 +1,61 @@
+html, body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    background: #0a0a23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    font-family: Courier New, Courier, monospace
+}
+
+object {
+    width: 90%;
+    margin: 0 auto;
+        
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul,
+ul li {
+   margin: .5rem;
+   padding: 0;
+   text-indent: 0;
+   list-style-type: none;
+   color: inheret;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: underline;  
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+section {
+    border: 1px solid white;
+    margin: 1rem;
+}
