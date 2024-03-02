@@ -1,10 +1,17 @@
 {
     "devDependencies": {
-      "concurrently": "^8.2.2"
+        "concurrently": "^8.2.2"
     },
     "scripts": {
-      "server": "node server/server.tsx",
-      "client": "npm start --prefix client",
-      "dev": "concurrently \"npm run server\" \"npm run client\""
+        "server": "node server/server.tsx",
+        "client": "npm start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\"", 
+        "start": "react-scripts start", 
+        "build": "react-scripts build", 
+        "test": "react-scripts test", 
+        "eject": "react-scripts eject"
+    },
+    "dependencies": {
+        "react-scripts": "^5.0.1"
     }
-  }
+}
