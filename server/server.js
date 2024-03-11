@@ -92,6 +92,15 @@ app.get('/search/products/:product_name', (req, res) => {
     });
 })
 
+app.get('/product/:product_id', (req, res) => {
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) console.log(result);res.json({ result: result });
+        });
+    });
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
   });
