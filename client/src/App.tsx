@@ -19,9 +19,7 @@ function App(){
             <Work/>
             <Footer/>
         </div>
-
-
-
+        
 
     )
 }
