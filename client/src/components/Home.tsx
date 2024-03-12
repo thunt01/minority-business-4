@@ -24,7 +24,7 @@ const Home = () => {
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           </p>
           <button className="secondary-button">
-            Begin Browsing <FiArrowRight />{" "}
+            Order Now <FiArrowRight />{" "}
           </button>
         </div>
         <div className="home-image-section">
