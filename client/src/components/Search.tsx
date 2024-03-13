@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import './Search.css';
 
 interface SearchProps {
     product_name: string;
 }
 
-function SearchFn({ product_name } : SearchProps) {
+export function SearchFn({ product_name } : SearchProps) {
 
     const [search_results, setResults] = useState([]);
     useEffect(() => {
@@ -37,14 +38,22 @@ const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const handleInputChange = (event: any) => {setSearchTerm(event.target.value)};
 
+    const navigate = useNavigate();
+    const handleEnter = (event: any) => {if (event.key === 'Enter') {
+        navigate("/search/" + searchTerm);
+    }};
+    
     return (
         <div id="SearchDropdown" class="SearchContent">
-            <input
-                type="search"
-                placeholder="Search product..."
-                value={searchTerm}
-                onChange={handleInputChange}
-            />
+            <form id="search">
+                <input
+                    type="search"
+                    placeholder="Search product..."
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    onKeyDown={handleEnter}
+                />
+            </form>
             <ul>
                 <SearchFn product_name={searchTerm} />
             </ul>

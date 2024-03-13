@@ -8,6 +8,7 @@ import Signup from "./components/Signup.tsx";
 import Nav from './components/Nav.tsx';
 import Checkout from './components/Checkout.tsx';
 import Product from './components/Product.tsx';
+import SearchResults from './components/SearchResults.tsx';
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/signup" element={ <Signup /> }/>
                 <Route path="/checkout" element={ <Checkout /> }/>
                 <Route path="/product/:ProductID" element={ <Product /> }/>
+                <Route path="/search/:search_tag" element={ <SearchResults /> }/>
             </Routes>
         </div>
     )    
