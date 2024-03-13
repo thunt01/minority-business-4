@@ -34,16 +34,8 @@ const Navbar = () => {
         icon: <InfoIcon />,
       },
       {
-        text: "Testimonials",
-        icon: <CommentRoundedIcon />,
-      },
-      {
-        text: "Contact",
-        icon: <PhoneRoundedIcon />,
-      },
-      {
-        text: "Cart",
-        icon: <ShoppingCartRoundedIcon />,
+        text: "Team",
+        icon: <Diversity3Icon />,
       },
     ];
     return (
