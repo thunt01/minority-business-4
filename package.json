@@ -2,16 +2,16 @@
     "devDependencies": {
         "concurrently": "^8.2.2"
     },
-    "scripts": {
-        "server": "node server/server.tsx",
-        "client": "npm start --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\"", 
-        "start": "react-scripts start", 
-        "build": "react-scripts build", 
-        "test": "react-scripts test", 
-        "eject": "react-scripts eject"
-    },
     "dependencies": {
-        "react-scripts": "^5.0.1"
+        "meilisearch": "^0.37.0",
+        "mysql": "^2.18.1",
+        "typescript": "^4.9.5"
+    },
+    "scripts": {
+        "server": "node server/server.js",
+        "client": "npm start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "postinstall": "(npm install --ignore-scripts); (cd server && npm install); (cd client && npm install); (curl -L https://install.meilisearch.com | sh); (pip install meilisync)",
+        "refresh": "meilisync refresh"
     }
 }
