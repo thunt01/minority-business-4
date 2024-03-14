@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.73",
+    "aws-amplify": "^6.0.19",
+    "aws-amplify-react": "^5.1.43",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
@@ -44,5 +46,6 @@
   "devDependencies": {
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19"
+    
   }
 }

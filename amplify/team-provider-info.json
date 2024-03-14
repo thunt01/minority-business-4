@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-minoritybusiness4-dev-224840-authRole",
+      "UnauthRoleArn": "arn:aws:iam::393207810869:role/amplify-minoritybusiness4-dev-224840-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::393207810869:role/amplify-minoritybusiness4-dev-224840-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-minoritybusiness4-dev-224840-deployment",
+      "UnauthRoleName": "amplify-minoritybusiness4-dev-224840-unauthRole",
+      "StackName": "amplify-minoritybusiness4-dev-224840",
+      "StackId": "arn:aws:cloudformation:us-east-1:393207810869:stack/amplify-minoritybusiness4-dev-224840/9b64fef0-ce10-11ee-8edd-12fc434b0a7b",
+      "AmplifyAppId": "d3qcspfvje10hb"
+    },
+    "categories": {
+      "auth": {
+        "minoritybusiness43a185504": {}
+      }
+    }
+  }
+}
