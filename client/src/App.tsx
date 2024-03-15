@@ -1,47 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
-
-import Home from './components/Home'
-import About from './components/About'
-import Work from './components/Work'
-import Footer from './components/Footer'
+import Landing from './components/Landing'
 import Contact from './components/Contact'
-import Signup from "./components/Signup"
-import Nav from './components/Nav'
 import Checkout from './components/Checkout';
-
-
+import Login from './components/Login';
 
 function App(){
     return (    
         <div className='App'>
-            <Home/>
-            <About/>
-            <Work/>
-            <Footer/>
+                <Routes>
+                    <Route path="/" element={ <Landing /> }/>
+                    <Route path="/Contact" element={<Contact />} />
+                    <Route path="/Checkout" element={<Checkout />} />
+                    <Route path="/Login" element={<Login />} />
+                </Routes>
         </div>
         
 
     )
 }
 
-
-
-
-
-// const App = () => {
-//     return (
-//         <div>
-
-//             <Nav />
-//             <Routes>
-//                 <Route path="/" element={ <Home /> }/>
-//                 <Route path="/about" element={ <About /> }/>
-//                 <Route path="/contact" element={ <Contact /> }/>
-//                 <Route path="/signup" element={ <Signup /> }/>
-//                 <Route path="/checkout" element={<Checkout/>}/>
-//             </Routes>
-//         </div>
-//     )    
-// }
 
 export default App;
