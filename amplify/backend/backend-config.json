@@ -1,10 +1,20 @@
 {
   "auth": {
-    "minoritybusiness43a185504": {
+    "minoritybusiness493b154cd93b154cd": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "minoritybusiness493b154cd93b154cdPostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
+        "mfaConfiguration": "ON",
         "mfaTypes": [
           "SMS"
         ],
@@ -20,8 +30,7 @@
         ],
         "socialProviders": [],
         "usernameAttributes": [
-          "EMAIL",
-          "PHONE_NUMBER"
+          "EMAIL"
         ],
         "verificationMechanisms": [
           "EMAIL"
@@ -29,6 +38,54 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ],
+          "category": "auth",
+          "resourceName": "minoritybusiness493b154cd93b154cd"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "minoritybusiness493b154cd93b154cdPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_minoritybusiness493b154cd93b154cdPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "minoritybusiness493b154cd93b154cdPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_minoritybusiness493b154cd93b154cdPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "minoritybusiness493b154cd93b154cdPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_minoritybusiness493b154cd93b154cdPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "minoritybusiness493b154cd93b154cdPostConfirmation"
+        }
+      ]
     }
   }
 }

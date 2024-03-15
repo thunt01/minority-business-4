@@ -8,6 +8,15 @@
         "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "dependencies": {
+        "@aws-amplify/analytics": "^7.0.20",
+        "@aws-amplify/api": "^6.0.20",
+        "@aws-amplify/auth": "^6.0.20",
+        "@aws-amplify/core": "^6.0.20",
+        "@aws-amplify/interactions": "^6.0.20",
+        "@aws-amplify/storage": "^6.0.20",
+        "@aws-amplify/ui": "^6.0.12",
+        "@aws-amplify/ui-react-core": "^3.0.12",
+        "@aws-amplify/xr": "^4.0.15",
         "cross-spawn": "^7.0.3",
         "react-scripts": "^5.0.1"
     }

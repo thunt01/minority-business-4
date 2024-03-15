@@ -5,12 +5,13 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
+    "@aws-amplify/ui-react": "^6.1.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.73",
-    "aws-amplify": "^6.0.19",
+    "aws-amplify": "^6.0.20",
     "aws-amplify-react": "^5.1.43",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -46,6 +47,5 @@
   "devDependencies": {
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19"
-    
   }
 }
