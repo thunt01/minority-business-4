@@ -1,0 +1,22 @@
+meilisearch:
+  api_url: http://localhost:7700
+  api_key: 'masterkeyforminoritybusiness'
+  insert_size: 1000
+  insert_interval: 10
+
+source:
+  type: mysql
+  host: minoritybusiness.c76siigws906.us-east-2.rds.amazonaws.com
+  port: 3306
+  database: main
+  user: admin
+  password: tuchus-xuknyS-2gyhna
+
+sync:
+  - table: Products
+    index: ProductID
+    pk: ProductID
+    full: true
+
+progress:
+  type: file

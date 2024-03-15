@@ -1,1 +1,7 @@
-node_modules/
+/node_modules
+/data.ms
+/dumps
+progress.json
+meilisearch
+package-lock.json
+node_modules
