@@ -44,8 +44,7 @@ app.get('/users', (req, res) => {
 
 app.get('/message', (req, res) => {
     res.json({ message: "Hello from server!" });
-});
-
+})
 app.post('/test', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
         console.log('Request received');
