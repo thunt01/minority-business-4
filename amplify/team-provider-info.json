@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-minoritybusiness4-dev-162005-authRole",
+      "UnauthRoleArn": "arn:aws:iam::393207810869:role/amplify-minoritybusiness4-dev-162005-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::393207810869:role/amplify-minoritybusiness4-dev-162005-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-minoritybusiness4-dev-162005-deployment",
+      "UnauthRoleName": "amplify-minoritybusiness4-dev-162005-unauthRole",
+      "StackName": "amplify-minoritybusiness4-dev-162005",
+      "StackId": "arn:aws:cloudformation:us-east-1:393207810869:stack/amplify-minoritybusiness4-dev-162005/6a088c60-e309-11ee-97ea-0e3a2685b597",
+      "AmplifyAppId": "d1y97ajkxxxvdl"
+    },
+    "categories": {
+      "auth": {
+        "minoritybusiness4": {
+          "nativeClientId": "5fonnpvor2k3td5cg2sdtj5bv1",
+          "userPoolId": "us-east-1_DyIqF6z0o",
+          "userPoolName": "CultureCartUsers",
+          "webClientId": "5fonnpvor2k3td5cg2sdtj5bv1"
+        }
+      }
+    }
+  }
+}
