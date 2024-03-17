@@ -2,24 +2,46 @@ import React from "react";
 import PickMeals from "../assets/pick-meals-image.png";
 import ChooseMeals from "../assets/choose-image.png";
 import DeliveryMeals from "../assets/delivery-image.png";
+import Suggestions from "../assets/suggestions.png";
+import Bulb from "../assets/bulb.png"
+import Chart from "../assets/chart_with_upwards_trend.png"
+import CrossedFingers from "../assets/crossed_fingers.png"
+import Dollar from "../assets/dollar.png"
+import Earth from "../assets/earth_africa.png"
+import MagnifyingGlass from "../assets/mag_right.png"
 
 const Work = () => {
     const workInfoData = [
       {
-        image: PickMeals,
-        title: "Pick Meals",
-        text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et sagittis duis elementum interdum facilisi bibendum.",
+        image: Earth,
+        title: "Discover",
+        text: "View a profile for each business that highlights who they are and what they sell",
       },
       {
-        image: ChooseMeals,
-        title: "Choose How Often",
-        text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et ",
+        image: Bulb,
+        title: "Personalized Suggestions",
+        text: "CultureCart helps you find the hidden gems that resonate with your unique taste",
       },
       {
-        image: DeliveryMeals,
-        title: "Fast Deliveries",
-        text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et lorem ipsum",
+        image: MagnifyingGlass,
+        title: "Robust Search",
+        text: "Find what you're craving effortlessly. Our search engine lets you filter by location, category, and more",
       },
+      {
+        image: CrossedFingers,
+        title: "Wishlist",
+        text: "Your wishlist keeps everything in reach. Bookmark your favorite products, businesses, or services",
+      },
+      {
+        image: Chart,
+        title: "Business Owner's Hub",
+        text: "Perfect for the modern entrepreneur. Track engagements, gather feedback, and fine-tune your offerings.",
+      },
+      {
+        image: Dollar,
+        title: "Advertise With Impact",
+        text: "Want to boost visibility? Opt to have your profile and products featured to our engaged customer base.",
+      }
     ];
     return (
       <div className="work-section-wrapper">
@@ -27,8 +49,8 @@ const Work = () => {
           <p className="primary-subheading">Work</p>
           <h1 className="primary-heading">How It Works</h1>
           <p className="primary-text">
-            Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
-            elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
+          With a shared commitment to customers and business owners, 
+          our product is an ensemble of features that helps us invest in an untapped market.
           </p>
         </div>
         <div className="work-section-bottom">
