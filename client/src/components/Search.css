@@ -1,0 +1,15 @@
+.SearchContent input[type="search"] { 
+    width: 100%;
+}
+
+.search-result-item {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    display: block;
+    margin: 10px;
+}
+
+.search-result-item li {
+    margin: 5px 0;
+}
