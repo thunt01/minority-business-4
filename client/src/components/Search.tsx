@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import './Search.css';
 
 interface SearchProps {
@@ -23,7 +24,6 @@ export function SearchFn({ product_name } : SearchProps) {
     const listItems = results.map((product: any) => (
         <li key={product.Id} className="search-result-item">
             <a href={`/product/${product.ProductID}`}>
-                <div>{product.ProductID}</div>
                 <div>{product.Name}</div>
                 <div>{product.Price}</div>
                 <div>{product.Description}</div> 
@@ -44,18 +44,26 @@ const Search = () => {
     }};
     
     return (
-        <div id="SearchDropdown" className="SearchContent">
-            <form id="search">
-                <input
-                    type="search"
-                    placeholder="Search product..."
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                    onKeyDown={handleEnter}
-                />
-            </form>
+        <div className="input-wrapper">
+            <FaSearch id="search-icon" />
             <ul>
-                <SearchFn product_name={searchTerm} />
+                <li>
+                    <form id="search">
+                        
+                        <input
+                            type="search"
+                            placeholder="Search product..."
+                            value={searchTerm}
+                            onChange={handleInputChange}
+                            onKeyDown={handleEnter}
+                        />
+                    </form>
+                </li>
+                {searchTerm && (
+                    <div className="search-result">
+                        <SearchFn product_name={searchTerm} />
+                    </div>
+                )}
             </ul>
         </div>
     )    

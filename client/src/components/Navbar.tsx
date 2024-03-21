@@ -44,21 +44,14 @@ const Navbar = () => {
             <img style= {{width: 75, height: 75}}src={CultureCartLogo} alt=""/>
             
         </div>
+        <Search></Search>
         <div className="navbar-links-container">
-          <Search></Search>
           <a href="">Home</a>
           <a href="">About</a>
           <a href="">Team</a>
-
-            <Link to="/Login" className="primary-button">Log in</Link>
-
-
-
-          {/* <button className="primary-button">Log in</button> */}
-
-
-
+          <Link to="/Login" className="primary-button">Log in</Link>
         </div>
+
         <div className="navbar-menu-container">
           <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
         </div>
