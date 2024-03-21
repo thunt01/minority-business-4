@@ -16,15 +16,22 @@ const Home = () => {
         </div>
         <div className="home-text-section">
           <h1 className="primary-heading">
-            Placeholder for a short descript
+            Where Community Meets Commerce
           </h1>
           <p className="primary-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            Imagine stepping into a world where every storefront tells a 
+            unique story—a place where community thrives, creativity blossoms, 
+            and innovation knows no bounds.
+          </p>
+          <p className="primary-text">
+            Explore a vibrant tapestry of minority-owned businesses, 
+            whether nestled in your neighborhood or spanning the nation. 
+            From cozy cafés to boutique fashion stores and cutting-edge tech startups, 
+            *I HATE that....I'm changing it as soon as I come up w something better*
+            we’ve curated a diverse ecosystem just for you
           </p>
           <button className="secondary-button">
-            Begin Browsing <FiArrowRight />{" "}
+            Browse Now <FiArrowRight />{" "}
           </button>
         </div>
         <div className="home-image-section">
