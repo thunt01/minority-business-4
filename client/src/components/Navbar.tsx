@@ -19,7 +19,7 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { Link } from 'react-router-dom';
-
+import Search from "./Search";
 
 
 const Navbar = () => {
@@ -45,6 +45,7 @@ const Navbar = () => {
             
         </div>
         <div className="navbar-links-container">
+          <Search></Search>
           <a href="">Home</a>
           <a href="">About</a>
           <a href="">Team</a>
