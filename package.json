@@ -3,6 +3,7 @@
         "concurrently": "^8.2.2"
     },
     "dependencies": {
+        "amplify": "^0.0.11",
         "meilisearch": "^0.37.0",
         "mysql": "^2.18.1",
         "typescript": "^4.9.5"
