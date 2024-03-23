@@ -69,7 +69,7 @@ app.get('/products', (req, res) => {
     });
 });
 
-app.get('/search/products/:product_name', (req, res) => {
+app.get('/search/products/:product_name/:sort', (req, res) => {
     // http://localhost:8000/search/products/
     search_client.index('ProductID').updateFilterableAttributes([
         'Name',
@@ -83,13 +83,23 @@ app.get('/search/products/:product_name', (req, res) => {
 
     search_client.getTask(0);
     const search_tag = req.params.product_name;
+    const sort_tag = req.params.sort;
 
-    search_client.index('ProductID').search(search_tag, {
-        limit: 5,
-        sort: ['Price:asc'],
-    }).then((r) => {
-        res.send(r.hits);
-    });
+    if (sort_tag == 'asc') {
+        search_client.index('ProductID').search(search_tag, {
+            sort: ['Price:asc'],
+        }).then((r) => {
+            res.send(r.hits);
+        });
+    }
+    else {
+        search_client.index('ProductID').search(search_tag, {
+            sort: ['Price:desc'],
+        }).then((r) => {
+            res.send(r.hits);
+        });
+    }
+    
 })
 
 app.get('/product/:product_id', (req, res) => {
