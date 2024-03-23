@@ -46,7 +46,7 @@ const Navbar = () => {
         </div>
         <Search></Search>
         <div className="navbar-links-container">
-          <a href="">Home</a>
+          <a href="/">Home</a>
           <a href="">About</a>
           <a href="">Team</a>
           <Link to="/Login" className="primary-button">Log in</Link>

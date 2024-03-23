@@ -5,20 +5,21 @@ import './Search.css';
 
 interface SearchProps {
     product_name: string;
+    sort_by: string;
 }
 
-export function SearchFn({ product_name } : SearchProps) {
+export function SearchFn({ product_name, sort_by } : SearchProps) {
 
     const [search_results, setResults] = useState([]);
     useEffect(() => {
         if (product_name.trim() !== '') {
-            fetch('/search/products/' + product_name)
+            fetch('/search/products/' + product_name + '/' + sort_by)
             .then((res) => res.json())
             .then((data) => {setResults(data)});
         } else {
             setResults([]);
         }
-    }, [product_name]);
+    }, [product_name, sort_by]);
 
     const results = JSON.parse(JSON.stringify(search_results));
     const listItems = results.map((product: any) => (
@@ -61,7 +62,7 @@ const Search = () => {
                 </li>
                 {searchTerm && (
                     <div className="search-result">
-                        <SearchFn product_name={searchTerm} />
+                        <SearchFn product_name={searchTerm} sort_by='dsc' />
                     </div>
                 )}
             </ul>
