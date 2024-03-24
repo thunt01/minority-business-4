@@ -45,19 +45,48 @@ app.get('/users', (req, res) => {
 app.get('/message', (req, res) => {
     res.json({ message: "Hello from server!" });
 })
-app.post('/test', (req, res) => {
+app.post('/product', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
         console.log('Request received');
-        var sql = `INSERT INTO Products (Name, Price, Description, URL) VALUES 
-        ('${req.body.name}', '${parseFloat(req.body.price)}', '${req.body.description}', '${req.body.url}')`;
+        if(req.body.id){
+            var sql = `UPDATE Products SET 
+            (Name = '${req.body.name}', Price = '${parseFloat(req.body.price)}', Description = '${req.body.description}',
+            URL = '${req.body.url}' WHERE CustomerID =${req.body.id}`;
+        } else {
+            var sql = `INSERT INTO Products (Name, Price, Description, URL) VALUES 
+            ('${req.body.name}', '${parseFloat(req.body.price)}', '${req.body.description}', '${req.body.url}')`;
+        }
         con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
+            if (err) res.send(err);
+            if (result) res.send(req.body);
+            console.log("1 product recorded");
         });
     } else {
         console.log('Missing a parameter');
     }
 });
+
+// app.get('/product', (req, res) => {
+//     // res.json({ message: "Hello from server!" });
+//     con.connect(function(err) {
+//         console.log(req.body)
+//         console.log("hhey is this wirking")
+//         con.query(`SELECT * FROM Products WHERE ProductID = ${req.body.id}`, function(err, result, fields) {
+//             if (err) res.send(err);
+//             if (result) res.json({ result: result });;
+//         });
+//     });
+// });
+
+app.get('/product/:product_id', (req, res) => {
+    console.log("testn testnig haloo")
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) console.log(result);res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL});
+        });
+    });
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
