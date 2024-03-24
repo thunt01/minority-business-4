@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Navbar from './Navbar';
+import './productForm.css'
 //import { ImportsNotUsedAsValues } from "typescript";
 
 
@@ -52,6 +54,7 @@ function ProductBuilder({ productID }) {
 
     return (
     <div className="App">
+        <Navbar></Navbar>
         <h1>
             {JSON.stringify(users)} 
         </h1>

@@ -17,7 +17,7 @@ function App(){
                     <Route path="/Contact" element={<Contact />} />
                     <Route path="/Checkout" element={<Checkout />} />
                     <Route path="/Login" element={<Login />} />
-                    <Route path="/ProductBuilder" element={ <ProductBuilder productID={-1} /> }/>
+                    <Route path="/ProductBuilder" element={ <ProductBuilder productID={1} /> }/>
                     <Route path="/product/:ProductID" element={ <Product /> }/>
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                 </Routes>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
 import {SearchFn} from './Search';
+import React from "react";
 import Select from 'react-select';
 import Navbar from './Navbar';
 
