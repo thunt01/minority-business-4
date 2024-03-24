@@ -111,6 +111,15 @@ app.get('/product/:product_id', (req, res) => {
     });
 })
 
+app.get('/business/:business_id', (req, res) => {
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Businesses WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) console.log(result);res.json({ name: result[0].Name, email: result[0].Email, description: result[0].Description, url: result[0].URL});
+        });
+    });
+})
+
 app.post('/product', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
         console.log('Request received');
@@ -119,6 +128,25 @@ app.post('/product', (req, res) => {
         } else {
             var sql = `INSERT INTO Products (Name, Price, Description, URL) VALUES ('${req.body.name}', '${parseFloat(req.body.price)}', '${req.body.description}', '${req.body.url}')`;
         }
+        con.query(sql, function (err, result) {
+            if (err) res.send(err);
+            if (result) res.send(req.body);
+            console.log("1 product recorded");
+        });
+    } else {
+        console.log('Missing a parameter');
+    }
+});
+
+app.post('/business', (req, res) => {
+    if (req.body.name && req.body.email && req.body.url && req.body.description) {
+        console.log('Request received');
+        if(req.body.id){
+            var sql = `UPDATE Businesses SET Name = '${req.body.name}', Email = '${req.body.email}', Description = '${req.body.description}',URL = '${req.body.url}' WHERE BusinessID =${req.body.id}`;
+        } else {
+            var sql = `INSERT INTO Businesses (Name, Email, Description, URL) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}')`;
+        }
+        console.log(sql)
         con.query(sql, function (err, result) {
             if (err) res.send(err);
             if (result) res.send(req.body);

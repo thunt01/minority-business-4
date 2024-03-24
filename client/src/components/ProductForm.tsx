@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
-import './productForm.css'
+import './Forms.css'
 //import { ImportsNotUsedAsValues } from "typescript";
 
+//form checking (correct types, correct length, '/', "")
+//*Edit so products also have foreign key: business id
+//*Add photos
+function ProductForm({ productID }) {
 
-//Take in product ID as parameter
-//If Product ID is found set product info values
-//Update product values in table instead of add new product to table
-function ProductBuilder({ productID }) {
-
-    const [users, setUsers] = useState(productID !==-1 ? "Update product: " + productID : "Create New Product");
+    const header = productID !==-1 ? "Update Product Information" : "Create New Product";
     const [productInfo, setProductInfo] = useState({name: "", price: "", description:"", url:""});
 
     useEffect(() => { 
@@ -56,7 +55,7 @@ function ProductBuilder({ productID }) {
     <div className="App">
         <Navbar></Navbar>
         <h1>
-            {JSON.stringify(users)} 
+            {header} 
         </h1>
         <form onSubmit={handleSubmit}>
             <label>Product Name:
@@ -96,4 +95,4 @@ function ProductBuilder({ productID }) {
     </div>
     );
 }
-export default ProductBuilder;
+export default ProductForm;
