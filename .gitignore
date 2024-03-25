@@ -4,6 +4,9 @@
 progress.json
 meilisearch
 package-lock.json
+<<<<<<< HEAD
+node_modules
+=======
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -26,3 +29,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+>>>>>>> 0726b4d177413e94401c30499027f1d6307e6ca7

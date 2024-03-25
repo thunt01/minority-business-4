@@ -3,6 +3,7 @@ import About from './About'
 import Work from './Work'
 import Footer from './Footer'
 import Home from "./Home"
+import React from 'react'
 
 
 
