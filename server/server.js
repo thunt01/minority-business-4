@@ -76,7 +76,6 @@ app.get('/search/products/:product_name/:sort', (req, res) => {
         'Description'
     ])
     search_client.index('ProductID').updateSortableAttributes([
-        'Name',
         'Price'
     ])
     search_client.getIndex('ProductID');
@@ -106,10 +105,28 @@ app.get('/product/:product_id', (req, res) => {
     con.connect(function(err) {
         con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) console.log(result);res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL});
+            if (result) res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL, businessid: result[0].BusinessID});
         });
     });
 })
+
+app.get('/business/products/:business_id', (req, res) => {
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Products WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.send(result);
+        })
+    })
+})
+
+app.get('/business/:business_id', (req, res) => {
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Business WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].email});
+        });
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
