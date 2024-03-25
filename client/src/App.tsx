@@ -9,6 +9,7 @@ import BusinessForm from './components/BusinessForm'
 
 import Login from './components/Login';
 import SearchResults from './components/SearchResults';
+import Business from './components/Business';
 
 function App(){
     return (    
@@ -21,13 +22,11 @@ function App(){
                     <Route path="/ProductForm" element={ <ProductForm productID={1} /> }/>
                     <Route path="/BusinessForm" element={ <BusinessForm businessID={1} /> }/>
                     <Route path="/product/:ProductID" element={ <Product /> }/>
+                    <Route path="/business/:BusinessID" element={ <Business /> }/>
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                 </Routes>
         </div>
-        
-
     )
 }
-
 
 export default App;
