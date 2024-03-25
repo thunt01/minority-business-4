@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
+import Navbar from './Navbar';
 
 const Product = () => {
     const [productName, setProduct] = useState("");
@@ -25,6 +26,7 @@ const Product = () => {
     
     return (
         <div>
+            <Navbar></Navbar>
             <li>{productName}</li>
             <li>{productPrice}</li>
             <li>{productDescription}</li>

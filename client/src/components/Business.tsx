@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
+import Navbar from './Navbar';
 
 const Business = () => {
     const [businessName, setBusiness] = useState("");
@@ -33,6 +34,7 @@ const Business = () => {
     
     return (
         <div>
+            <Navbar></Navbar>
             <h1>{businessName}</h1>
             <h2>About our business:</h2>
             {businessDescription}

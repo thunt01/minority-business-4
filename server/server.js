@@ -99,7 +99,7 @@ app.get('/search/products/:product_name/:sort', (req, res) => {
         });
     }
     
-})
+});
 
 app.get('/product/:product_id', (req, res) => {
     con.connect(function(err) {
@@ -108,7 +108,7 @@ app.get('/product/:product_id', (req, res) => {
             if (result) res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL, businessid: result[0].BusinessID});
         });
     });
-})
+});
 
 app.get('/business/products/:business_id', (req, res) => {
     con.connect(function(err) {
@@ -117,7 +117,7 @@ app.get('/business/products/:business_id', (req, res) => {
             if (result) res.send(result);
         })
     })
-})
+});
 
 app.get('/business/:business_id', (req, res) => {
     con.connect(function(err) {
@@ -125,7 +125,7 @@ app.get('/business/:business_id', (req, res) => {
             if (err) res.send(err);
             if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].email});
         });
-    });
+})});
 
 app.post('/product', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
@@ -161,10 +161,9 @@ app.post('/business', (req, res) => {
         });
     } else {
         console.log('Missing a parameter');
-    }
-
+    };
 });
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-  });
+});
