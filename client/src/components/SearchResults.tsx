@@ -4,6 +4,7 @@ import {SearchFn} from './Search';
 import React from "react";
 import Select from 'react-select';
 import Navbar from './Navbar';
+import Search from './Search';
 
 const SearchResults = () => {
     const searchTag = String(useParams().search_tag);
@@ -22,6 +23,7 @@ const SearchResults = () => {
     return (
         <div>
             <Navbar></Navbar>
+            <Search></Search>
             <h1>Search Results</h1>
             <Select value={sortby} onChange={setOption} options={options}/>
             <SearchFn product_name={searchTag} sort_by={sortby.value}/>

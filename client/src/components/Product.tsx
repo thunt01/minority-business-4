@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
 import Navbar from './Navbar';
+import Search from './Search';
 
 const Product = () => {
     const [productName, setProduct] = useState("");
@@ -27,6 +28,7 @@ const Product = () => {
     return (
         <div>
             <Navbar></Navbar>
+            <Search></Search>
             <li>{productName}</li>
             <li>{productPrice}</li>
             <li>{productDescription}</li>
