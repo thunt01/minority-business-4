@@ -4,9 +4,6 @@
 progress.json
 meilisearch
 package-lock.json
-<<<<<<< HEAD
-node_modules
-=======
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
@@ -19,9 +16,9 @@ amplify/backend/.temp
 build/
 dist/
 node_modules/
-aws-exports.js
+#aws-exports.js
 awsconfiguration.json
-amplifyconfiguration.json
+#amplifyconfiguration.json
 amplifyconfiguration.dart
 amplify-build-config.json
 amplify-gradle-config.json
@@ -29,4 +26,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
->>>>>>> 0726b4d177413e94401c30499027f1d6307e6ca7
