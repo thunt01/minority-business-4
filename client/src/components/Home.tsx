@@ -3,11 +3,16 @@ import Navbar from "./Navbar";
 import CultureBannerBackground from "../assets/culture-banner-background.png"
 import BannerBackground from "../assets/home-banner-background.png";
 import { FiArrowRight } from "react-icons/fi";
+import Product from "./Product";
+//import Trending from "./Trending";
+import { Link } from "react-router-dom";
 
 // this is the home page COMPONENT, not app.tsx
 
 const Home = () => {
+  
   return (
+    
     <div className="home-container">
       <Navbar />
       <div className="home-banner-container">
@@ -30,9 +35,9 @@ const Home = () => {
             *I HATE that....I'm changing it as soon as I come up w something better*
             we’ve curated a diverse ecosystem just for you
           </p>
-          <button className="secondary-button">
+          <Link to="/Product/1" className="secondary-button" >
             Browse Now <FiArrowRight />{" "}
-          </button>
+          </Link>
         </div>
         <div className="home-image-section">
           <img src={CultureBannerBackground} alt="" />
