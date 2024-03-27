@@ -57,3 +57,11 @@ font-weight: 600;
 .search-result-item a:link {
 text-decoration:none
 }
+
+#select-align {
+    /* background-color:black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    

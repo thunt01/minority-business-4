@@ -5,6 +5,7 @@ import React from "react";
 import Select from 'react-select';
 import Navbar from './Navbar';
 import Search from './Search';
+import './Search.css';
 
 const SearchResults = () => {
     const searchTag = String(useParams().search_tag);
@@ -20,12 +21,43 @@ const SearchResults = () => {
         setSortby(options[1]);
     }};
 
+    const customStyles = {
+      control: (provided, state) => ({
+        ...provided,
+        border: state.isFocused ? '2px solid #ffa500' : '2px solid #ccc',
+        boxShadow: state.isFocused ? '0 0 0 2px #ffa500' : 'none',
+        '&:hover': {
+          border: '2px solid #ffa500'
+        },
+        padding: '9px',
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isFocused ? '#ffa500' : 'transparent',
+        color: state.isFocused ? '#fff' : '#333',
+      }),
+      singleValue: (provided, state) => ({
+        ...provided,
+        padding: '6px 6px',
+      }),
+      indicatorsContainer: (provided, state) => ({
+        ...provided,
+        height: '25px',
+      }),
+      container: (provided, state) => ({
+        ...provided,
+        width: '20%',
+      }),
+    };
+
     return (
         <div>
             <Navbar></Navbar>
             <Search></Search>
-            <h1>Search Results</h1>
-            <Select value={sortby} onChange={setOption} options={options}/>
+            <div id='select-align'>
+              <h1>Search Results</h1>
+              <Select value={sortby} onChange={setOption} options={options} isSearchable={false} placeholder="Sort by price" styles={customStyles}/>
+            </div>
             <SearchFn product_name={searchTag} sort_by={sortby.value}/>
         </div>
     )
