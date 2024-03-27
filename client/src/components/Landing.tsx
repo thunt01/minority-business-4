@@ -1,12 +1,8 @@
-
 import About from './About'
 import Work from './Work'
 import Footer from './Footer'
 import Home from "./Home"
 import React from 'react'
-
-
-
 
 function Landing(){
     return (    
@@ -16,8 +12,6 @@ function Landing(){
             <Work/>
             <Footer/>
         </div>
-        
-
     )
 }
 export default Landing;
