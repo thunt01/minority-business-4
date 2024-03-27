@@ -25,9 +25,11 @@ export function SearchFn({ product_name, sort_by } : SearchProps) {
     const listItems = results.map((product: any) => (
         <li key={product.Id} className="search-result-item">
             <a href={`/product/${product.ProductID}`}>
-                <div>{product.Name}</div>
-                <div>{product.Price}</div>
-                <div>{product.Description}</div> 
+                <ul>
+                <li>{product.Name}</li>
+                <li>{product.Price}</li>
+                <li>{product.Description}</li> 
+                </ul>
             </a> 
         </li>
     ));
@@ -45,10 +47,10 @@ const Search = () => {
     }};
     
     return (
-        <div className="input-wrapper">
-            <FaSearch id="search-icon" />
-            <ul>
-                <li>
+        <div>
+            <div className="input-wrapper">
+                <FaSearch id="search-icon" />
+                <ul>
                     <form id="search">
                         
                         <input
@@ -59,13 +61,16 @@ const Search = () => {
                             onKeyDown={handleEnter}
                         />
                     </form>
-                </li>
-                {searchTerm && (
-                    <div className="search-result">
-                        <SearchFn product_name={searchTerm} sort_by='dsc' />
-                    </div>
-                )}
-            </ul>
+                    
+                </ul>
+            </div>
+            {searchTerm && (
+                <div className="search-result">
+                    <ul>
+                    <SearchFn product_name={searchTerm} sort_by='dsc' />
+                    </ul>
+                </div>
+            )}
         </div>
     )    
 }
