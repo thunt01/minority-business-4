@@ -32,6 +32,7 @@ border-radius: 15px;
 max-height: 400px;
 width: 50%;
 overflow-y: auto;
+z-index: 1000;
 position: absolute;
 text-decoration: none;
 }
