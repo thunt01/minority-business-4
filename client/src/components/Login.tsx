@@ -5,11 +5,17 @@ import { Amplify } from 'aws-amplify';
 import { Authenticator} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { fetchUserAttributes } from 'aws-amplify/auth';
+import { useNavigate } from 'react-router-dom';
 
 Amplify.configure(awsmobile);
 
 export default function Login() {
   const [currentUser, setCurrentUser] = useState('');
+  const navigate = useNavigate();
+  const navToBusinessPage = (event: any) => {navigate("/BusinessForm")};
+
+
+
   useEffect(() => {
     const checkUserSignIn = async () => {
       try {
@@ -41,7 +47,13 @@ export default function Login() {
             <>
               <h1>Hello {currentUser}</h1>
               
-              <button onClick={signOut}>Sign out</button>
+              <button onClick={signOut} className='secondary-button'>Sign out</button>
+
+              <button onClick={navToBusinessPage} className="secondary-button" >
+                  Business Admin Page 
+              </button>
+
+              
             </>
           ) : (
             <p>Loading...</p>
