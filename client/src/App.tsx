@@ -5,6 +5,7 @@ import Checkout from './components/Checkout';
 import Product from './components/Product';
 import ProductForm from './components/ProductForm';
 import BusinessForm from './components/BusinessForm'
+import Browsing from './components/Browsing'
 
 import Login from './components/Login';
 import SearchResults from './components/SearchResults';
@@ -22,6 +23,7 @@ function App(){
                     <Route path="/product/:ProductID" element={ <Product /> }/>
                     <Route path="/business/:BusinessID" element={ <Business /> }/>
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
+                    <Route path="/browsing" element={ <Browsing /> }/>
                 </Routes>
         </div>
     )

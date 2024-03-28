@@ -3,14 +3,14 @@ import Navbar from "./Navbar";
 import CultureBannerBackground from "../assets/culture-banner-background.png"
 import BannerBackground from "../assets/home-banner-background.png";
 import { FiArrowRight } from "react-icons/fi";
-import Product from "./Product";
 //import Trending from "./Trending";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // this is the home page COMPONENT, not app.tsx
 
 const Home = () => {
-  
+  const navigate = useNavigate();
+  const navToBrowsing = (event: any) => {navigate("/browsing")};
   return (
     
     <div className="home-container">
@@ -35,9 +35,9 @@ const Home = () => {
             *I HATE that....I'm changing it as soon as I come up w something better*
             we’ve curated a diverse ecosystem just for you
           </p>
-          <Link to="/Product/1" className="secondary-button" >
+          <button onClick={navToBrowsing} className="secondary-button" >
             Browse Now <FiArrowRight />{" "}
-          </Link>
+          </button>
         </div>
         <div className="home-image-section">
           <img src={CultureBannerBackground} alt="" />
