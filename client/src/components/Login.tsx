@@ -23,6 +23,9 @@ export default function Login() {
         }
       } catch (error) {
         console.log('Error fetching user:', error);
+        console.log('User not signed in. Trying again...');
+          // Retry after a short delay
+          setTimeout(checkUserSignIn, 3000); // Retry after 3 seconds
       }
     };
     checkUserSignIn(); // Start checking user sign-in status
