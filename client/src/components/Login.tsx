@@ -13,8 +13,7 @@ export default function Login() {
   const [currentUser, setCurrentUser] = useState('');
   const navigate = useNavigate();
   const navToBusinessPage = (event: any) => {navigate("/BusinessForm")};
-
-
+  const navToBrowsing = (event: any) => {navigate("/browsing")};
 
   useEffect(() => {
     const checkUserSignIn = async () => {
@@ -51,6 +50,10 @@ export default function Login() {
 
               <button onClick={navToBusinessPage} className="secondary-button" >
                   Business Admin Page 
+              </button>
+
+              <button onClick={navToBrowsing} className="secondary-button" >
+                  Browse
               </button>
 
               

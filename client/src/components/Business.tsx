@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Search from './Search';
 
 const Business = () => {
-    const [businessName, setBusiness] = useState("");
+    const [businessName, BusinessName] = useState("");
     const [businessDescription, setDescription] = useState("");
     const [businessEmail, setEmail] = useState("");
     const [products, setProducts] = useState([]);
@@ -13,7 +13,7 @@ const Business = () => {
     useEffect(() => {
       fetch('/business/' + business_id)
         .then((res) => res.json())
-        .then((data) => {setBusiness(data.name); setDescription(data.description); setEmail(data.email)});
+        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email)});
     }, [business_id]);
 
     useEffect(() => {

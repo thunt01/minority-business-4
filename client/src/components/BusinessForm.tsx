@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
 import './Forms.css'
+import { useNavigate } from "react-router-dom";
 
 function BusinessForm({ businessID }) {
-
+    
+    
     const header = businessID !==-1 ? "Update Business Profile" : "Create Business Profile";
     const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:""});
+
+    const navigate = useNavigate();
+    const navToSelectProducts = (event: any) => {navigate("/SelectProducts")};
 
     useEffect(() => { 
         if (businessID !==-1) {
@@ -88,6 +93,11 @@ function BusinessForm({ businessID }) {
             </label><br/>
             <input type="submit"/>
         </form>
+        <div>
+            {/* options to advertise */}
+            <button className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</button>
+
+        </div>
     </div>
     );
 }
