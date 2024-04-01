@@ -146,7 +146,30 @@ app.post('/product', (req, res) => {
 });
 
 
-
+// Handle promo update
+app.post('/promo', (req, res) => {
+    const { ProductID } = req.body;
+    console.log('Received request with ProductID:', ProductID); 
+  
+    con.connect(function (err) {
+      if (err) {
+        console.error('Error connecting to database:', err.message);
+        return res.status(500).json({ error: 'Database connection error' });
+      }
+  
+      // Update IsPromoted to true
+      const sql = `UPDATE Products SET IsPromoted = 1 WHERE ProductID = ${ProductID}`;
+      console.log('SQL query:', sql);
+      con.query(sql, function (err, result) {
+        if (err) {
+          console.error('Error updating database:', err.message);
+          return res.status(500).json({ error: 'Database update error' });
+        }
+        console.log(result.affectedRows + ' updated');
+        return res.status(200).json({ message: 'Database update successful' });
+      });
+    });
+  });
 
 
 

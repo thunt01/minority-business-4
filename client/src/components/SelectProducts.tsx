@@ -13,11 +13,35 @@ const SelectProducts =  () => {
         
     };
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(`Checkbox state: ${showOnPage}`);
+        
+
+        // selectedProduct.ProductID is the one being sent over to server.js
+        if (showOnPage) {
+            sendReq(showOnPage);
+            alert('promo updated');
+        }
+
         setSelectedProduct(null);
+
     };
+
+    function sendReq(info){
+        fetch('/promo', {
+            method: "POST",
+            body: JSON.stringify(info),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    }
+
+
+
 
     const handleCheckboxChange = (event) => {
         setShowOnPage(event.target.checked);
