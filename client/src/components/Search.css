@@ -59,7 +59,6 @@ text-decoration:none
 }
 
 #select-align {
-    /* background-color:black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,8 +72,6 @@ form {
     width: 300px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 h2 {
@@ -99,13 +96,10 @@ h2 {
     text-align: center;
 }
   
-
-
-
 label {
     display: flex;
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Align items horizontally */
-  margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
     

@@ -15,7 +15,7 @@ const Product = () => {
     
     
     const listItems = results.map((product: any) => (
-        <li key={product.Id}>
+        <li key={product.Id} className="search-result-item">
             <a href={`/product/${product.ProductID}`}>
                 <ul>
                 <li>{product.Name}</li>
