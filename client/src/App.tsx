@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing'
 
@@ -10,8 +10,13 @@ import Browsing from './components/Browsing'
 import Login from './components/Login';
 import SearchResults from './components/SearchResults';
 import Business from './components/Business';
+import SelectProducts from "./components/SelectProducts";
 
 function App(){
+
+    const [BusinessName, setBusinessName] = useState('');
+    
+
     return (    
         <div className='App'>
                 <Routes>
@@ -23,7 +28,11 @@ function App(){
                     <Route path="/business/:BusinessID" element={ <Business /> }/>
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                     <Route path="/browsing" element={ <Browsing /> }/>
+                    <Route path = "/SelectProducts" element={<SelectProducts/>}/>
                 </Routes>
+
+                
+                
         </div>
     )
 }
