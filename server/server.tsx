@@ -79,15 +79,7 @@ app.post('/product', (req, res) => {
 // });
 
 
-// get all products from a certain business
-app.get('/business/:business_id/products', (req, res) => {
-    con.connect(function(err) {
-      con.query(`SELECT * FROM main.Products WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
-        if (err) res.send(err);
-        if (result) console.log(result);res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL});
-      });
-    });
-  });
+
 
 
 app.get('/product/:product_id', (req, res) => {
