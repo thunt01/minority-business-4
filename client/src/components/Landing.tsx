@@ -3,6 +3,7 @@ import Work from './Work'
 import Footer from './Footer'
 import Home from "./Home"
 import React from 'react'
+import Team from "./Team"
 
 function Landing(){
     return (    
@@ -10,6 +11,7 @@ function Landing(){
             <Home/>
             <About/>
             <Work/>
+            <Team/>
             <Footer/>
         </div>
     )
