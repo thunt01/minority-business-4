@@ -13,11 +13,28 @@ const SelectProducts =  () => {
         
     };
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(`Checkbox state: ${showOnPage}`);
+        // selectedProduct.ProductID is the one being sent over to server.js
+        if (showOnPage) {
+            sendReq(JSON.parse(JSON.stringify({ ProductID : selectedProduct.ProductID })));
+            alert('promo updated');
+        }
         setSelectedProduct(null);
     };
+
+
+    function sendReq(info){
+        fetch('/promo', {
+            method: "POST",
+            body: JSON.stringify(info),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    }
 
     const handleCheckboxChange = (event) => {
         setShowOnPage(event.target.checked);
@@ -69,14 +86,7 @@ const SelectProducts =  () => {
     </div>
     );
 
-    // now, I want to add something so that when you click on a search-result-item, it expands and shows a form that asks for the duration of the promo
-
     
-
-            
-
-
-
 }
 
 export default SelectProducts;
