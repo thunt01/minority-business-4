@@ -78,6 +78,10 @@ app.post('/product', (req, res) => {
 //     });
 // });
 
+
+
+
+
 app.get('/product/:product_id', (req, res) => {
     console.log("testn testnig haloo")
     con.connect(function(err) {
