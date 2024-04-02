@@ -145,13 +145,12 @@ app.post('/product', (req, res) => {
     }
 });
 
-
 // Handle promo update
 app.post('/promo', (req, res) => {
-    if (req.query.ProductID) {
-        console.log('Received request with ProductID:', req.query.ProductID); 
+    if (req.body.ProductID) {
+        console.log('Received request with ProductID:', req.body.ProductID); 
         // Update IsPromoted to true
-        const sql = `UPDATE Products SET IsPromoted = 1 WHERE ProductID = '${req.query.ProductID}'`;
+        const sql = `UPDATE Products SET IsPromoted = 1 WHERE ProductID = '${req.body.ProductID}'`;
         console.log('SQL query:', sql);
         con.query(sql, function (err, result) {
         if (err) {
@@ -164,8 +163,6 @@ app.post('/promo', (req, res) => {
         console.log('Missing a parameter');
     };
 });
-
-
 
 app.post('/business', (req, res) => {
     if (req.body.name && req.body.email && req.body.url && req.body.description) {

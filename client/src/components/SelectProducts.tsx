@@ -16,7 +16,7 @@ const SelectProducts =  () => {
         event.preventDefault();
         // selectedProduct.ProductID is the one being sent over to server.js
         if (showOnPage) {
-            sendReq(showOnPage);
+            sendReq(JSON.parse(JSON.stringify({ ProductID : selectedProduct.ProductID })));
             alert('promo updated');
         }
         setSelectedProduct(null);
