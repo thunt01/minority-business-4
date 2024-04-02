@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Grid, Button, IconButton } from '@mui/material';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp'; 
+import ExploreIcon from '@mui/icons-material/Explore';
 
 import awsmobile from '../aws-exports';
 import { Amplify } from 'aws-amplify';
@@ -7,13 +10,15 @@ import '@aws-amplify/ui-react/styles.css';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { useNavigate } from 'react-router-dom';
 
+
 Amplify.configure(awsmobile);
 
 export default function Login() {
   const [currentUser, setCurrentUser] = useState('');
   const navigate = useNavigate();
-  const navToBusinessPage = (event: any) => {navigate("/BusinessForm")};
-  const navToBrowsing = (event: any) => {navigate("/browsing")};
+  const navToBusinessPage = () => {navigate("/BusinessForm")};
+  const navToBrowsing = () => {navigate("/browsing")};
+
 
   useEffect(() => {
     const checkUserSignIn = async () => {
@@ -41,29 +46,36 @@ export default function Login() {
   return (
     <Authenticator>
       {({ signOut, user }) => (
-        <main>
-          {currentUser ? (
-            <>
+          <main className="container">
+            
+            <div className="user-info">
               <h1>Hello {currentUser}</h1>
-              
-              <button onClick={signOut} className='secondary-button'>Sign out</button>
-
-              <button onClick={navToBusinessPage} className="secondary-button" >
-                  Business Admin Page 
-              </button>
-
-              <button onClick={navToBrowsing} className="secondary-button" >
-                  Browse
-              </button>
-
-              
-            </>
-          ) : (
-            <p>Loading...</p>
-          )}
+              <IconButton onClick={signOut} aria-label="Sign Out" className='sign-out-icon'>
+              <ExitToAppIcon />
+            </IconButton>
+            </div>
+         
+          <Grid container direction="column" justifyContent="center"  alignItems="center" spacing={2} className="menu">
+            <Grid item xs={12} sm={6}>
+              <Button onClick={navToBusinessPage} variant="outlined" size="large" className="menu-item">
+              Open Storefront
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Button onClick={navToBrowsing} variant="outlined" size="large" className="menu-item" >
+                Browse Products
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Button onClick={navToBrowsing} variant="outlined" size="large" className="menu-item">
+                User Profile
+              </Button>
+            </Grid>
+          </Grid>
         </main>
       )}
     </Authenticator>
   );
 }
+
 
