@@ -11,6 +11,7 @@ import Login from './components/Login';
 import SearchResults from './components/SearchResults';
 import Business from './components/Business';
 import SelectProducts from "./components/SelectProducts";
+import ConfigBusinessPromo from "./components/ConfigBusinessPromo";
 
 function App(){
 
@@ -29,6 +30,7 @@ function App(){
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                     <Route path="/browsing" element={ <Browsing /> }/>
                     <Route path = "/SelectProducts" element={<SelectProducts/>}/>
+                    <Route path = "/ConfigBusinessPromo" element={<ConfigBusinessPromo/>}/>
                 </Routes>
 
                 
