@@ -120,6 +120,16 @@ app.post('/promo', (req, res) => {
     };
 });
 
+
+app.get('/getpromo', (req, res) => {
+    con.connect(function(err) {
+        con.query('SELECT * FROM main.Products WHERE IsPromoted = 1', function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result});
+        });
+    });
+});
+
 app.get('/product/:product_id', (req, res) => {
     con.connect(function(err) {
         con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
