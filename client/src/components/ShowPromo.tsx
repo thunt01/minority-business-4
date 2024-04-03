@@ -9,15 +9,14 @@ const ShowPromo = () => {
 
     const [products, setProducts] = useState([]);
 
-    
-
     useEffect(() => {
         // Make the API call when the component mounts
         axios.get('/getpromo')
             .then((response) => {
                 
                 
-                setProducts(JSON.parse(JSON.stringify(response.data)));
+                setProducts(JSON.parse(JSON.stringify(response.data.result)));
+                console.log('products successfully fetched');
                 
             })
             .catch(error => {
@@ -29,11 +28,6 @@ const ShowPromo = () => {
 
     
     const results = products;
-    
-
-   console.log('type: ',typeof(results)); // type is 'object' ... not sure why 
-   console.log('type: ',results); // Prints JSON for product info 
-    // results.map isn't working even though I parsed the JSON data 
 
     const listItems = results.map((product: any) => (
         <li key={product.Id} className="search-result-item">
@@ -47,14 +41,7 @@ const ShowPromo = () => {
         </li>
     ));
 
-
-
-
-
-
-
-
-
+    
 
     return (
         <div>
