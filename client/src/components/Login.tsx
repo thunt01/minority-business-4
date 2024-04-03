@@ -53,7 +53,7 @@ export default function Login() {
     <Authenticator>
       {({ signOut, user }) => (
           <main className="container">
-            <div className="banner" style={{ backgroundColor: '#9B1F05', padding: '10px 0', position: 'relative' }}>
+            <div className="banner" style={{ backgroundColor: '#DB920C  ', padding: '10px 0', position: 'relative' }}>
           {/* Add a banner behind the user-info container */}
             </div>
             <div className="user-info" style={{ position: 'relative', zIndex: 1 }}>

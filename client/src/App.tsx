@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing'
+import Profile from './components/ManageProfile'
 
 import Product from './components/Product';
 import ProductForm from './components/ProductForm';
@@ -29,6 +30,7 @@ function App(){
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                     <Route path="/browsing" element={ <Browsing /> }/>
                     <Route path = "/SelectProducts" element={<SelectProducts/>}/>
+                    <Route path = "/ProfilePage" element={<Profile/>}/>
                 </Routes>
 
                 
