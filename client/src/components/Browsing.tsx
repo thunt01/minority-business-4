@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Search from './Search';
 import Business from './Business';
+import ShowPromo from './ShowPromo';
 
 const Product = () => {
     const [search_results, setResults] = useState([]);
@@ -36,6 +37,7 @@ const Product = () => {
             <h1>Featured</h1>
 
             <h1>Featured Products</h1>
+            <ShowPromo/>
             
 
             <h1>Browsing</h1>
