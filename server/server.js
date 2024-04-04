@@ -196,6 +196,18 @@ app.get('/businessUsers/:account_id', (req, res) => {
         });
 })});
 
+app.post('/adduser', (req, res) => {
+    if (req.body.Username && req.body.Email) {
+        const sql = `INSERT INTO main.Users (Username, Email) VALUES ('${req.body.Username}', '${req.body.Email}');`;
+        con.query(sql, function (err, result) {
+            if (err) res.send(err);
+            if (result) res.send(req.body);
+        })
+    } else {
+        console.log('Missing a parameter');
+    }
+});
+
 app.post('/product', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
         console.log('Request received');

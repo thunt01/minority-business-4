@@ -19,7 +19,7 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { Link } from 'react-router-dom';
-
+import { fetchUserAttributes } from 'aws-amplify/auth';
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -37,6 +37,17 @@ const Navbar = () => {
         icon: <Diversity3Icon />,
       },
     ];
+
+    const [currentUser, setCurrentUser] = useState('');
+    async function currentAuthenticatedUser() {
+        try {
+            const user_details = await fetchUserAttributes();
+            setCurrentUser(user_details.email);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    currentAuthenticatedUser();
     return (
       <nav>
         <div className="nav-logo-container">
@@ -48,7 +59,11 @@ const Navbar = () => {
           <a href="/#about-us">About</a>
           <a href="/#team">Team</a>
           <a href="/#work">Work</a>
-          <Link to="/Login" className="primary-button">Log in</Link>
+          {currentUser ? (
+              <Link to="/Login" className="primary-button">Profile</Link>
+            ) : (
+              <Link to="/Login" className="primary-button">Log in</Link>
+          )}
         </div>
 
         <div className="navbar-menu-container">

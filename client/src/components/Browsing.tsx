@@ -39,21 +39,17 @@ const Product = () => {
     return (
         <div>
             <Navbar></Navbar>
-            {currentUser && (
-                <div>
-                    hi {currentUser}
-                    <h1>Featured Products</h1>
-                </div>
-            )}
-
             <Search></Search>
             
             <h1>Featured</h1>
             <ShowBusinessPromo/>
 
-            <h1>Featured Products</h1>
-            <ShowPromo/>
-            
+            {currentUser && (
+                <div>
+                    <h1>Featured Products</h1>
+                    <ShowPromo/>
+                </div>
+            )}
 
             <h1>Browsing</h1>
             {listItems}
