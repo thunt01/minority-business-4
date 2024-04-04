@@ -2,29 +2,79 @@ import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
 import './Forms.css'
 import { useNavigate } from "react-router-dom";
+import {
+    fetchUserAttributes,
+    updateUserAttribute,
+    type UpdateUserAttributeOutput
+  } from 'aws-amplify/auth';
+import { Description } from "@mui/icons-material";
 
-function BusinessForm({ businessID }) {
+function BusinessForm() {
     
     
-    const header = businessID !==-1 ? "Update Business Profile" : "Create Business Profile";
-    const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:""});
+    const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:"", cognitoAccountID: ""});
+    const [businessID, setBusinessID] = useState("");
+    const [updating, setUpdating] = useState(false);
 
     const navigate = useNavigate();
     const navToSelectProducts = (event: any) => {navigate("/SelectProducts")};
+    const navToConfigBusinessPromo = (event: any) => {navigate("/ConfigBusinessPromo")};
 
     useEffect(() => { 
-        if (businessID !==-1) {
-            fetch('/business/' + businessID)
-            .then((res) => res.json())
-            .then((data) => setBusinessInfo(data));
+        const checkExistingBusiness = async () => {
+            const user_details = await fetchUserAttributes();
+            if (user_details['custom:hasBusiness']) {
+                setUpdating(true)
+                fetch('/businessUsers/' + user_details.sub)
+                .then((res) => res.json())
+                .then((data) => {
+                    setBusinessInfo(data) 
+                    setBusinessID(data.id)
+                });
+            } else {
+                console.log("Whats your business here?")
+                setBusinessInfo({name: "", email: "", description:"", url:"", cognitoAccountID: user_details.sub})
+            }
         }
-    }, [businessID]);
+        checkExistingBusiness();
+    }, []);
+
+    const header = updating ? "Update Business Profile" : "Create Business Profile";
 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setBusinessInfo(values => ({...values, [name]: value}))
     }
+    async function handleUpdateUserAttribute(attributeKey: string, value: any) {
+        try {
+          const output = await updateUserAttribute({
+            userAttribute: {
+              attributeKey,
+              value
+            }
+          });
+          handleUpdateUserAttributeNextSteps(output);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      function handleUpdateUserAttributeNextSteps(output: UpdateUserAttributeOutput) {
+        const { nextStep } = output;
+      
+        switch (nextStep.updateAttributeStep) {
+          case 'CONFIRM_ATTRIBUTE_WITH_CODE':
+            const codeDeliveryDetails = nextStep.codeDeliveryDetails;
+            console.log(
+              `Confirmation code was sent to ${codeDeliveryDetails?.deliveryMedium}.`
+            );
+            // Collect the confirmation code from the user and pass to confirmUserAttribute.
+            break;
+          case 'DONE':
+            console.log(`attribute was successfully updated.`);
+            break;
+        }
+      }
 
     function sendReq(info) {
         fetch('/business', {
@@ -34,13 +84,17 @@ function BusinessForm({ businessID }) {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((response) => console.log("response!"))
+        .then((res) => console.log(res));
+        const updatehasBusiness = async () => {
+            handleUpdateUserAttribute('custom:hasBusiness', "1")
+        }
+        updatehasBusiness()
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (businessID !== -1) {
+        if (updating) {
             sendReq({...businessInfo,...{id: businessID }});
             console.log(JSON.stringify({...businessInfo,...{id: businessID }}));
             alert("Business Profile Updated")
@@ -96,6 +150,9 @@ function BusinessForm({ businessID }) {
         <div>
             {/* options to advertise */}
             <button className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</button>
+        <div>
+        </div>
+            <button className= "secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
 
         </div>
     </div>

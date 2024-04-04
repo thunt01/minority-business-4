@@ -5,6 +5,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 // Run backend on local port 8000
 const PORT = process.env.PORT || 8000;
 
@@ -44,6 +45,35 @@ app.post('/addproduct', (req, res) => {
         console.log('Missing a parameter');
     }
 })
+
+app.post('/addBusinessPromo', (req, res) =>{
+
+    if (req.body.title && req.body.message && req.body.url){
+        console.log('Request received');
+        con.connect(function(err){
+            con.query(`INSERT INTO main.BusinessPromoConfig (Title, Message, ImageURL) VALUES ('${req.body.title}', '${req.body.message}', '${req.body.url}')`, 
+            function(err, result, fields) {
+                if (err) res.send(err);
+                if (result) res.send({Title: req.body.title, Message: req.body.message, ImageURL: req.body.url});
+                if (fields) console.log(fields);
+
+            });
+
+        });
+    } else {
+        console.log('Missing a parameter');
+    }
+})
+
+app.get('/getBusinessPromo', (req, res) => {
+    con.connect(function(err) {
+        con.query('SELECT * FROM BusinessPromoConfig', function (err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result});
+        });
+    });
+})
+
 
 app.post('/deleteproduct', (req, res) => {
     if (req.query.Name) {
@@ -101,6 +131,35 @@ app.get('/search/products/:product_name/:sort', (req, res) => {
     
 });
 
+// Handle promo update
+app.post('/promo', (req, res) => {
+    if (req.body.ProductID) {
+        console.log('Received request with ProductID:', req.body.ProductID); 
+        // Update IsPromoted to true
+        const sql = `UPDATE Products SET IsPromoted = 1 WHERE ProductID = '${req.body.ProductID}'`;
+        console.log('SQL query:', sql);
+        con.query(sql, function (err, result) {
+        if (err) {
+            console.error('Error updating database:', err.message);
+            return res.status(500).json({ error: 'Database update error' });
+        }
+        console.log(result.affectedRows + ' updated');
+        return res.status(200).json({ message: 'Database update successful' });
+    })} else {
+        console.log('Missing a parameter');
+    };
+});
+
+
+app.get('/getpromo', (req, res) => {
+    con.connect(function(err) {
+        con.query('SELECT * FROM main.Products WHERE IsPromoted = 1', function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result});
+        });
+    });
+});
+
 app.get('/product/:product_id', (req, res) => {
     con.connect(function(err) {
         con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
@@ -121,9 +180,19 @@ app.get('/business/products/:business_id', (req, res) => {
 
 app.get('/business/:business_id', (req, res) => {
     con.connect(function(err) {
-        con.query(`SELECT * FROM main.Business WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
+        //combine businesses + business
+        con.query(`SELECT * FROM main.Businesses WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].email});
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL});
+        });
+})});
+
+app.get('/businessUsers/:account_id', (req, res) => {
+    con.connect(function(err) {
+        const sql = `SELECT * FROM Businesses WHERE CognitoAccountID = '${req.params.account_id}'`;
+        con.query(sql, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL, id: result[0].BusinessID});
         });
 })});
 
@@ -170,12 +239,12 @@ app.post('/business', (req, res) => {
         if(req.body.id){
             var sql = `UPDATE Businesses SET Name = '${req.body.name}', Email = '${req.body.email}', Description = '${req.body.description}',URL = '${req.body.url}' WHERE BusinessID =${req.body.id}`;
         } else {
-            var sql = `INSERT INTO Businesses (Name, Email, Description, URL) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}')`;
+            var sql = `INSERT INTO Businesses (Name, Email, Description, URL, CognitoAccountID) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}', '${req.body.cognitoAccountID}')`;
         }
         console.log(sql)
         con.query(sql, function (err, result) {
             if (err) res.send(err);
-            if (result) res.send(req.body);
+            if (result) console.log(result); //res.send(req.body);
             console.log("1 product recorded");
         });
     } else {

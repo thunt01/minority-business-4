@@ -22,6 +22,7 @@ const SelectProducts =  () => {
         setSelectedProduct(null);
     };
 
+
     function sendReq(info){
         fetch('/promo', {
             method: "POST",
@@ -79,8 +80,7 @@ const SelectProducts =  () => {
     </div>
     );
 
-    // now, I want to add something so that when you click on a search-result-item, it expands and shows a form that asks for the duration of the promo
-
+    
 }
 
 export default SelectProducts;

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Search from './Search';
 import { fetchUserAttributes } from 'aws-amplify/auth';
+import ShowPromo from './ShowPromo';
+import ShowBusinessPromo from './ShowBusinessPromo';
 
 const Product = () => {
     const [search_results, setResults] = useState([]);
@@ -47,6 +49,12 @@ const Product = () => {
             <Search></Search>
             
             <h1>Featured</h1>
+            <ShowBusinessPromo/>
+
+            <h1>Featured Products</h1>
+            <ShowPromo/>
+            
+
             <h1>Browsing</h1>
             {listItems}
         </div>
