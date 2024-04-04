@@ -150,6 +150,8 @@ function BusinessForm() {
         <div>
             {/* options to advertise */}
             <button className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</button>
+        <div>
+        </div>
             <button className= "secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
 
         </div>
