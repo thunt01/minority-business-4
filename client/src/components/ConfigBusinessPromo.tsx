@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
+import Navbar from "./Navbar";
 
 const ConfigBusinessPromo = () => {
 
@@ -45,6 +46,7 @@ const ConfigBusinessPromo = () => {
 
     return (
         <div>
+            <Navbar/>
             <form onSubmit={handleSubmit} >
                 <label htmlFor = "title">Enter Ad Title</label><br/>
                 <input 

@@ -65,8 +65,14 @@ app.post('/addBusinessPromo', (req, res) =>{
     }
 })
 
-
-
+app.get('/getBusinessPromo', (req, res) => {
+    con.connect(function(err) {
+        con.query('SELECT * FROM BusinessPromoConfig', function (err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result});
+        });
+    });
+})
 
 
 app.post('/deleteproduct', (req, res) => {
