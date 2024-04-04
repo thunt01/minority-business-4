@@ -150,9 +150,19 @@ app.get('/business/products/:business_id', (req, res) => {
 
 app.get('/business/:business_id', (req, res) => {
     con.connect(function(err) {
-        con.query(`SELECT * FROM main.Business WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
+        //combine businesses + business
+        con.query(`SELECT * FROM main.Businesses WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].email});
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL});
+        });
+})});
+
+app.get('/businessUsers/:account_id', (req, res) => {
+    con.connect(function(err) {
+        const sql = `SELECT * FROM Businesses WHERE CognitoAccountID = '${req.params.account_id}'`;
+        con.query(sql, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL, id: result[0].BusinessID});
         });
 })});
 
@@ -185,12 +195,12 @@ app.post('/business', (req, res) => {
         if(req.body.id){
             var sql = `UPDATE Businesses SET Name = '${req.body.name}', Email = '${req.body.email}', Description = '${req.body.description}',URL = '${req.body.url}' WHERE BusinessID =${req.body.id}`;
         } else {
-            var sql = `INSERT INTO Businesses (Name, Email, Description, URL) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}')`;
+            var sql = `INSERT INTO Businesses (Name, Email, Description, URL, CognitoAccountID) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}', '${req.body.cognitoAccountID}')`;
         }
         console.log(sql)
         con.query(sql, function (err, result) {
             if (err) res.send(err);
-            if (result) res.send(req.body);
+            if (result) console.log(result); //res.send(req.body);
             console.log("1 product recorded");
         });
     } else {

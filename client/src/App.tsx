@@ -24,7 +24,7 @@ function App(){
                     <Route path="/" element={ <Landing /> }/>
                     <Route path="/Login" element={<Login />} />
                     <Route path="/ProductForm" element={ <ProductForm productID={1} /> }/>
-                    <Route path="/BusinessForm" element={ <BusinessForm businessID={1} /> }/>
+                    <Route path="/BusinessForm" element={ <BusinessForm /> }/>
                     <Route path="/product/:ProductID" element={ <Product /> }/>
                     <Route path="/business/:BusinessID" element={ <Business /> }/>
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
