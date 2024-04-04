@@ -5,6 +5,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 // Run backend on local port 8000
 const PORT = process.env.PORT || 8000;
 
@@ -44,6 +45,35 @@ app.post('/addproduct', (req, res) => {
         console.log('Missing a parameter');
     }
 })
+
+app.post('/addBusinessPromo', (req, res) =>{
+
+    if (req.body.title && req.body.message && req.body.url){
+        console.log('Request received');
+        con.connect(function(err){
+            con.query(`INSERT INTO main.BusinessPromoConfig (Title, Message, ImageURL) VALUES ('${req.body.title}', '${req.body.message}', '${req.body.url}')`, 
+            function(err, result, fields) {
+                if (err) res.send(err);
+                if (result) res.send({Title: req.body.title, Message: req.body.message, ImageURL: req.body.url});
+                if (fields) console.log(fields);
+
+            });
+
+        });
+    } else {
+        console.log('Missing a parameter');
+    }
+})
+
+app.get('/getBusinessPromo', (req, res) => {
+    con.connect(function(err) {
+        con.query('SELECT * FROM BusinessPromoConfig', function (err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result});
+        });
+    });
+})
+
 
 app.post('/deleteproduct', (req, res) => {
     if (req.query.Name) {

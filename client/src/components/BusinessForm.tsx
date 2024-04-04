@@ -18,6 +18,7 @@ function BusinessForm() {
 
     const navigate = useNavigate();
     const navToSelectProducts = (event: any) => {navigate("/SelectProducts")};
+    const navToConfigBusinessPromo = (event: any) => {navigate("/ConfigBusinessPromo")};
 
     useEffect(() => { 
         const checkExistingBusiness = async () => {
@@ -149,6 +150,7 @@ function BusinessForm() {
         <div>
             {/* options to advertise */}
             <button className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</button>
+            <button className= "secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
 
         </div>
     </div>

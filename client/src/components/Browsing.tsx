@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Search from './Search';
 import Business from './Business';
 import ShowPromo from './ShowPromo';
+import ShowBusinessPromo from './ShowBusinessPromo';
 
 const Product = () => {
     const [search_results, setResults] = useState([]);
@@ -35,6 +36,7 @@ const Product = () => {
             <Search></Search>
             
             <h1>Featured</h1>
+            <ShowBusinessPromo/>
 
             <h1>Featured Products</h1>
             <ShowPromo/>
