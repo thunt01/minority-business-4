@@ -5,6 +5,7 @@
     "dependencies": {
         "amplify": "^0.0.11",
         "axios": "^1.6.8",
+        "body-parser": "^1.20.2",
         "meilisearch": "^0.37.0",
         "mysql": "^2.18.1",
         "react-icons": "^5.0.1",
