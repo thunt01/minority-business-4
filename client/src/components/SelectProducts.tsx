@@ -10,7 +10,6 @@ const SelectProducts =  () => {
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
-        
     };
 
     const handleFormSubmit = async (event) => {
@@ -40,7 +39,6 @@ const SelectProducts =  () => {
         setShowOnPage(event.target.checked);
     };
 
-    
     useEffect(() => {
         // Make the API call when the component mounts
         axios.get('/products')
@@ -73,16 +71,12 @@ const SelectProducts =  () => {
                                     Show:
                                     <input type="checkbox" className="form-checkbox" checked={showOnPage} onChange={handleCheckboxChange} />
                                 </label>
-
-                                 
                                 <button className="secondary-button"type="submit">Submit</button>
                             </form>
                         )}
                 </li>
             ))}
         </ul>
-        
-        
     </div>
     );
 

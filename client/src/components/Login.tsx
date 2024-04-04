@@ -18,13 +18,22 @@ import {
   Typography,
 } from "@mui/material";
 
-
 Amplify.configure(awsmobile);
 
 export default function Login() {
   const [currentUser, setCurrentUser] = useState('');
   
-
+  function sendReq(info) {
+    fetch('/adduser', {
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+  }
 
   useEffect(() => {
     const checkUserSignIn = async () => {
@@ -32,6 +41,7 @@ export default function Login() {
          const user_details = await fetchUserAttributes();
          if (user_details) {
           setCurrentUser(user_details.given_name|| '');
+          sendReq(JSON.parse(JSON.stringify({ Username: user_details.given_name, Email: user_details.email})));
         } else {
           console.log('User not signed in. Trying again...');
           // Retry after a short delay
