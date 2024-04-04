@@ -14,6 +14,7 @@ const ConfigBusinessPromo = () => {
         
 
         // Log the form data
+        console.log('hi');
         console.log("Ad Title:", title);
         console.log("Ad Message:", message);
         console.log("URL:", url);
