@@ -9,6 +9,7 @@ import { Authenticator} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import {
   Box,
   Card,
@@ -60,6 +61,8 @@ export default function Login() {
    
 
   return (
+    <div>
+    <Navbar></Navbar>
     <Authenticator>
       {({ signOut, user }) => (
           <main className="container">
@@ -101,6 +104,7 @@ export default function Login() {
         </main>
       )}
     </Authenticator>
+    </div>
   );
 }
 
