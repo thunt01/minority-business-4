@@ -1,7 +1,8 @@
+
+
 import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing'
-import Profile from './components/ManageProfile'
 
 import Product from './components/Product';
 import ProductForm from './components/ProductForm';
@@ -12,6 +13,7 @@ import Login from './components/Login';
 import SearchResults from './components/SearchResults';
 import Business from './components/Business';
 import SelectProducts from "./components/SelectProducts";
+import ConfigBusinessPromo from "./components/ConfigBusinessPromo";
 
 function App(){
 
@@ -30,7 +32,7 @@ function App(){
                     <Route path="/search/:search_tag" element={ <SearchResults /> }/>
                     <Route path="/browsing" element={ <Browsing /> }/>
                     <Route path = "/SelectProducts" element={<SelectProducts/>}/>
-                    <Route path = "/ProfilePage" element={<Profile/>}/>
+                    <Route path = "/ConfigBusinessPromo" element={<ConfigBusinessPromo/>}/>
                 </Routes>
 
                 
