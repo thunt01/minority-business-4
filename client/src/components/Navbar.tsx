@@ -51,7 +51,7 @@ const Navbar = () => {
     return (
       <nav>
         <div className="nav-logo-container">
-            <img style= {{width: 75, height: 75}}src={CultureCartLogo} alt=""/>
+            <img style= {{width: 100, height: 100}}src={CultureCartLogo} alt=""/>
             
         </div>
         <div className="navbar-links-container">

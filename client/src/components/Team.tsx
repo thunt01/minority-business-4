@@ -43,8 +43,8 @@ const Team = () => {
           <p className="primary-subheading">Team</p>
           <h1 className="primary-heading">Meet the team</h1>
           <p className="primary-text">
-          With a shared commitment to customers and business owners, 
-          our product is an ensemble of features that helps us invest in an untapped market.
+          This product was made by a group of graduating computer science students from Howard University
+          
           </p>
         </div>
         <div className="team-section-bottom">
