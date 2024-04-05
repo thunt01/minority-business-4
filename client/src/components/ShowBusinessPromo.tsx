@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Carousel from "./Carousel";
+
+
+// we need to figure out an example image situation 
 
 const ShowBusinessPromo = () => {
 
     const [features, setFeatures] = useState([]);
+
+    const images = [
+        'https://picsum.photos/id/1/200/300',
+        'https://picsum.photos/id/20/200/300',
+        'https://picsum.photos/id/23/200/300'
+
+    ];
+
 
     useEffect(() => {
         // Make the API call when the component mounts
@@ -22,7 +34,7 @@ const ShowBusinessPromo = () => {
 
     }, []);
 
-    const results = features;
+    const results = features; // we'll turn this into an array of objects for the carousel. 
 
     const listItems = results.map((business: any) => (
         <li key={business.BusinessPromo_ID}>
@@ -36,14 +48,13 @@ const ShowBusinessPromo = () => {
         </li>
     ));
 
-
-
     return (
-        <div>Don't worry ... giving this a ui next
-            {listItems}
-        </div>
-        
-    )
+        <div>
+        <Carousel></Carousel>
+      </div>
+      );
+
+    
    
 }
 
