@@ -21,3 +21,4 @@ I followed https://www.youtube.com/watch?v=GVjIflROwJ4&t=118s
 The design it's made after, source code, and assets are linked in the description of that video
 
 use material icons (https://mui.com/material-ui/material-icons/?query=team) and google fonts (https://fonts.google.com/) later on
+can use https://picsum.photos/images for placeholder images
