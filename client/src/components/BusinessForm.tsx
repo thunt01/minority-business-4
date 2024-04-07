@@ -8,12 +8,17 @@ import {
     type UpdateUserAttributeOutput
   } from 'aws-amplify/auth';
 import { Description } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 function BusinessForm() {
     
     
-    const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:"", cognitoAccountID: ""});
+    const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:"", cognitoAccountID: "", businessImageName: "" });
     const [businessID, setBusinessID] = useState("");
+    const [previewFile, setPreviewFile] = useState("");
+    const [submitToggle, setSubmitToggle] = useState(false);
+    const [businessPhoto, setBusinessPhoto] = useState();
+
     const [updating, setUpdating] = useState(false);
 
     const navigate = useNavigate();
@@ -30,10 +35,12 @@ function BusinessForm() {
                 .then((data) => {
                     setBusinessInfo(data) 
                     setBusinessID(data.id)
+                    setPreviewFile("https://culture-cart-s3-images.s3.amazonaws.com/" + data.businessImageName)
                 });
             } else {
                 console.log("Whats your business here?")
-                setBusinessInfo({name: "", email: "", description:"", url:"", cognitoAccountID: user_details.sub})
+                setBusinessInfo({name: "", email: "", description:"", url:"", businessImageName: "", cognitoAccountID: user_details.sub})
+                //setBusinessInfo(values => ({...values, cognitoAccountID: user_details.sub}))
             }
         }
         checkExistingBusiness();
@@ -46,6 +53,14 @@ function BusinessForm() {
         const value = event.target.value;
         setBusinessInfo(values => ({...values, [name]: value}))
     }
+
+    const handleFileSelect = (event) => {        
+        setPreviewFile(URL.createObjectURL(event.target.files[0]));
+        console.log(event.target.files[0])
+        setBusinessPhoto(event.target.files[0])
+        console.log("break!")
+      }
+
     async function handleUpdateUserAttribute(attributeKey: string, value: any) {
         try {
           const output = await updateUserAttribute({
@@ -76,6 +91,31 @@ function BusinessForm() {
         }
       }
 
+    async function putImage (imageFile) {
+        console.log("f3")
+        const { url } = await fetch("/s3Url").then(res => res.json())
+        console.log(url)
+
+        await fetch(url, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "multipart/form-data"
+            },
+            body: imageFile
+        })
+
+        const imageUrl = url.split('?')[0]
+        console.log(imageUrl.substring(48))
+        setBusinessInfo(values => ({...values, businessImageName: imageUrl.substring(48).toString()}))
+        return imageUrl.substring(48)
+
+    }
+    async function deleteImage (imageFile) {
+        console.log("dted")
+        await fetch("/s3DeleteImage/" + imageFile)
+        console.log("deleted")
+
+    }
     function sendReq(info) {
         fetch('/business', {
             method: "POST",
@@ -92,17 +132,37 @@ function BusinessForm() {
         updatehasBusiness()
     }
 
+    const didMount = React.useRef(false);
+
+    useEffect(() => {
+        console.log(didMount.current)
+        if (didMount.current){
+            if (updating) {
+                sendReq({...businessInfo,...{id: businessID}});
+                console.log(JSON.stringify({...businessInfo,...{id: businessID }}));
+                alert("Business Profile Updated")
+            } else {
+                sendReq(businessInfo);
+                console.log(JSON.stringify(businessInfo));
+                alert("Business Profile Created")
+            }
+        } else {
+            didMount.current = true
+        }
+    }, [businessInfo.businessImageName, submitToggle]);
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("f1")
         if (updating) {
-            sendReq({...businessInfo,...{id: businessID }});
-            console.log(JSON.stringify({...businessInfo,...{id: businessID }}));
-            alert("Business Profile Updated")
-        }
-        else {
-            sendReq(businessInfo);
-            console.log(JSON.stringify(businessInfo));
-            alert("Business Profile Created")
+            if (businessPhoto) {
+                console.log("f2")
+                deleteImage(businessInfo.businessImageName)
+                putImage(businessPhoto)
+            }
+            setSubmitToggle(!submitToggle)
+        } else {
+            putImage(businessPhoto) 
         }
     }
 
@@ -145,7 +205,16 @@ function BusinessForm() {
                     onChange={handleChange}
                 />
             </label><br/>
-            <input type="submit"/>
+            <label>Product Image:
+                <input 
+                    type="file" 
+                    name="image" 
+                    accept="image/*"
+                    onChange={handleFileSelect}
+                />
+            </label><br/>
+            <img src={previewFile}/><br/>
+            <input type="submit" />
         </form>
         <div>
             {/* options to advertise */}

@@ -7,6 +7,7 @@
         "axios": "^1.6.8",
         "body-parser": "^1.20.2",
         "components": "^0.1.0",
+        "dotenv": "^16.4.5",
         "meilisearch": "^0.37.0",
         "mysql": "^2.18.1",
         "react-bootstrap-carousel": "^4.1.1",
