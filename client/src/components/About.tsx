@@ -19,11 +19,9 @@ const About = () => {
           Bridging the Gap for Minority-Owned Businesses 
           </h1>
           <p className="primary-text">
-          In our interconnected world, fostering an inclusive and diverse marketplace is 
-          not just essential—it’s imperative. While we’ve made significant strides in advancing 
+          In our interconnected world, fostering an inclusive and diverse marketplace is imperative. While we’ve made significant strides in advancing 
           racial equity, minority-owned businesses continue to encounter distinct hurdles. 
-          These challenges include navigating visibility, 
-          connecting with their intended audiences, and confronting ethnic bias head-on.
+          
           </p>
           <p className="primary-text">
           We’re passionate about fostering inclusivity and supporting minority-owned businesses, 

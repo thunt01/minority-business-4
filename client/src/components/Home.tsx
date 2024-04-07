@@ -31,9 +31,7 @@ const Home = () => {
           <p className="primary-text">
             Explore a vibrant tapestry of minority-owned businesses, 
             whether nestled in your neighborhood or spanning the nation. 
-            From cozy cafés to boutique fashion stores and cutting-edge tech startups, 
-            *I HATE that....I'm changing it as soon as I come up w something better*
-            we’ve curated a diverse ecosystem just for you
+            We’ve curated a diverse ecosystem just for you
           </p>
           <button onClick={navToBrowsing} className="secondary-button" >
             Browse Now <FiArrowRight />{" "}

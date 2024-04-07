@@ -24,7 +24,7 @@ const Work = () => {
       },
       {
         image: MagnifyingGlass,
-        title: "Robust Search",
+        title: "Search",
         text: "Find what you're craving effortlessly. Our search engine lets you filter by location, category, and more",
       },
       {
@@ -48,10 +48,6 @@ const Work = () => {
         <div className="work-section-top">
           <p className="primary-subheading">Work</p>
           <h1 className="primary-heading">How It Works</h1>
-          <p className="primary-text">
-          With a shared commitment to customers and business owners, 
-          our product is an ensemble of features that helps us invest in an untapped market.
-          </p>
         </div>
         <div className="work-section-bottom">
           {workInfoData.map((data) => (
