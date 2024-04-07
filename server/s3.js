@@ -8,8 +8,8 @@ dotenv.config()
 
 const region = "us-east-1"
 const bucketName = "culture-cart-s3-images"
-const accessKeyId = process.env.AWS_ACCESS_KEY_ID // AKIATJZMWON367PBNULN
-const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY // 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
+const accessKeyId = process.env.AWS_ACCESS_KEY_ID
+const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
 
 const s3 = new aws.S3({
   region,
