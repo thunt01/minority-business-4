@@ -222,9 +222,10 @@ app.post('/product', (req, res) => {
     if (req.body.name && req.body.price && req.body.url && req.body.description) {
         console.log('Request received');
         if(req.body.id){
-            var sql = `UPDATE Products SET Name = '${req.body.name}', Price = '${parseFloat(req.body.price)}', Description = '${req.body.description}',URL = '${req.body.url}' WHERE ProductID =${req.body.id}`;
+            var sql = `UPDATE Products SET Name = '${req.body.name}', Price = '${parseFloat(req.body.price)}', Description = '${req.body.description}',URL = '${req.body.url}', ImageName = '${req.body.productImageName}' 
+            WHERE ProductID =${req.body.id}`;
         } else {
-            var sql = `INSERT INTO Products (Name, Price, Description, URL) VALUES ('${req.body.name}', '${parseFloat(req.body.price)}', '${req.body.description}', '${req.body.url}')`;
+            var sql = `INSERT INTO Products (Name, Price, Description, URL, BusinessID, ImageName) VALUES ('${req.body.name}', '${parseFloat(req.body.price)}', '${req.body.description}', '${req.body.url}', '${req.body.cognitoAccountID}' , '${req.body.productImageName}' )`;
         }
         con.query(sql, function (err, result) {
             if (err) res.send(err);

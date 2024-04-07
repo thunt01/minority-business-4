@@ -16,9 +16,7 @@ function BusinessForm() {
     const [businessInfo, setBusinessInfo] = useState({name: "", email: "", description:"", url:"", cognitoAccountID: "", businessImageName: "" });
     const [businessID, setBusinessID] = useState("");
     const [previewFile, setPreviewFile] = useState("");
-    const [submitToggle, setSubmitToggle] = useState(false);
     const [businessPhoto, setBusinessPhoto] = useState();
-
     const [updating, setUpdating] = useState(false);
 
     const navigate = useNavigate();
@@ -132,11 +130,11 @@ function BusinessForm() {
                 .then((imageName) => {
                     const reqData = {...businessInfo, businessImageName: imageName}
                     setBusinessInfo(reqData)
-                    sendReq(reqData)
+                    sendReq({...reqData, id: businessID })
                 })
                 
             } else {
-                sendReq(businessInfo)
+                sendReq({...businessInfo, id: businessID })
             }
             alert("Business Profile Updated")
         } else {
