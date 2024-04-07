@@ -38,7 +38,6 @@ function BusinessForm() {
                     setPreviewFile("https://culture-cart-s3-images.s3.amazonaws.com/" + data.businessImageName)
                 });
             } else {
-                console.log("Whats your business here?")
                 setBusinessInfo({name: "", email: "", description:"", url:"", businessImageName: "", cognitoAccountID: user_details.sub})
                 //setBusinessInfo(values => ({...values, cognitoAccountID: user_details.sub}))
             }
@@ -56,9 +55,7 @@ function BusinessForm() {
 
     const handleFileSelect = (event) => {        
         setPreviewFile(URL.createObjectURL(event.target.files[0]));
-        console.log(event.target.files[0])
         setBusinessPhoto(event.target.files[0])
-        console.log("break!")
       }
 
     async function handleUpdateUserAttribute(attributeKey: string, value: any) {
@@ -92,9 +89,7 @@ function BusinessForm() {
       }
 
     async function putImage (imageFile) {
-        console.log("f3")
         const { url } = await fetch("/s3Url").then(res => res.json())
-        console.log(url)
 
         await fetch(url, {
             method: "PUT",
@@ -105,16 +100,12 @@ function BusinessForm() {
         })
 
         const imageUrl = url.split('?')[0]
-        console.log(imageUrl.substring(48))
         setBusinessInfo(values => ({...values, businessImageName: imageUrl.substring(48).toString()}))
-        return imageUrl.substring(48)
+        return imageUrl.substring(48).toString()
 
     }
     async function deleteImage (imageFile) {
-        console.log("dted")
-        await fetch("/s3DeleteImage/" + imageFile)
-        console.log("deleted")
-
+        fetch("/s3DeleteImage/" + imageFile)
     }
     function sendReq(info) {
         fetch('/business', {
@@ -132,37 +123,30 @@ function BusinessForm() {
         updatehasBusiness()
     }
 
-    const didMount = React.useRef(false);
-
-    useEffect(() => {
-        console.log(didMount.current)
-        if (didMount.current){
-            if (updating) {
-                sendReq({...businessInfo,...{id: businessID}});
-                console.log(JSON.stringify({...businessInfo,...{id: businessID }}));
-                alert("Business Profile Updated")
-            } else {
-                sendReq(businessInfo);
-                console.log(JSON.stringify(businessInfo));
-                alert("Business Profile Created")
-            }
-        } else {
-            didMount.current = true
-        }
-    }, [businessInfo.businessImageName, submitToggle]);
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("f1")
         if (updating) {
             if (businessPhoto) {
-                console.log("f2")
                 deleteImage(businessInfo.businessImageName)
                 putImage(businessPhoto)
+                .then((imageName) => {
+                    const reqData = {...businessInfo, businessImageName: imageName}
+                    setBusinessInfo(reqData)
+                    sendReq(reqData)
+                })
+                
+            } else {
+                sendReq(businessInfo)
             }
-            setSubmitToggle(!submitToggle)
+            alert("Business Profile Updated")
         } else {
-            putImage(businessPhoto) 
+            putImage(businessPhoto)
+            .then((imageName) => {
+                const reqData = {...businessInfo, businessImageName: imageName}
+                setBusinessInfo(reqData)
+                sendReq(reqData)
+            })
+            alert("Business Profile Created")
         }
     }
 
