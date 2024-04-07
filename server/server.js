@@ -1,6 +1,7 @@
 // Enable all CORS requests
 import express from 'express';
 import cors from 'cors';
+import { generateUploadURL, deleteS3Image } from './s3.js'
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -192,9 +193,18 @@ app.get('/businessUsers/:account_id', (req, res) => {
         const sql = `SELECT * FROM Businesses WHERE CognitoAccountID = '${req.params.account_id}'`;
         con.query(sql, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL, id: result[0].BusinessID});
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL, id: result[0].BusinessID, businessImageName: result[0].ImageName});
         });
 })});
+
+app.get('/s3Url', async (req, res) => {
+    const url = await generateUploadURL()
+    res.send({url})
+  });
+
+app.get('/s3DeleteImage/:image_name', async (req, res) => {
+    deleteS3Image(req.params.image_name)
+});
 
 app.post('/adduser', (req, res) => {
     if (req.body.Username && req.body.Email) {
@@ -245,13 +255,15 @@ app.post('/promo', (req, res) => {
     };
 });
 
-app.post('/business', (req, res) => {
+app.post('/business', (req, res) => { //add imageName + add column to db + add image preview window + resize photos
     if (req.body.name && req.body.email && req.body.url && req.body.description) {
         console.log('Request received');
         if(req.body.id){
-            var sql = `UPDATE Businesses SET Name = '${req.body.name}', Email = '${req.body.email}', Description = '${req.body.description}',URL = '${req.body.url}' WHERE BusinessID =${req.body.id}`;
+            var sql = `UPDATE Businesses SET Name = '${req.body.name}', Email = '${req.body.email}', Description = '${req.body.description}',URL = '${req.body.url}',ImageName = '${req.body.businessImageName}'
+            WHERE BusinessID =${req.body.id}`;
         } else {
-            var sql = `INSERT INTO Businesses (Name, Email, Description, URL, CognitoAccountID) VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}', '${req.body.cognitoAccountID}')`;
+            var sql = `INSERT INTO Businesses (Name, Email, Description, URL, CognitoAccountID, ImageName) 
+            VALUES ('${req.body.name}', '${req.body.email}', '${req.body.description}', '${req.body.url}', '${req.body.cognitoAccountID}', '${req.body.businessImageName}')`;
         }
         console.log(sql)
         con.query(sql, function (err, result) {
