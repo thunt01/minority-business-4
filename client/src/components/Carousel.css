@@ -28,11 +28,15 @@ body {
 }
 
 .carousel-item {
+  margin-right: 10px;
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  height: 490px;
-  background-color: #fff;
+  align-items: center;
+  width: 100%; /* Adjust as needed */
+  background-color: #f5f5f5; /* Set your desired background color */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  
 }
 
 .carousel-item-text {
@@ -42,10 +46,42 @@ body {
   white-space: normal;
   color: #617d98;
 }
-.carousel-img {
+/* .carousel-img {
   width: 250px;
   padding: 0 20px 0 20px;
+} */
+
+.carousel-img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block; /* Ensures proper centering */
+  margin: 0 auto; /* Horizontally centers the image */
 }
+
+.carousel-text {
+  padding: 16px;
+  text-align: center;
+}
+
+.carousel-statement {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Set your desired text color */
+}
+
+/* Description text */
+.carousel-description {
+  font-size: 14px;
+  color: #777; /* Set your desired text color */
+}
+
+.carousel-content {
+  width: 100%;
+  height: 100%;
+}
+
 
 /* final stage */
 
@@ -86,3 +122,11 @@ body {
   color: #ffffff;
 }
   
+
+.c-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
