@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import CarouselItem from "./CarouselItem";
 import './Carousel.css';
+import { ArrowForward } from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
+import { RadioButtonChecked } from "@mui/icons-material";
 
 
 const Carousel = () => {
@@ -16,6 +19,11 @@ const Carousel = () => {
             statement: 'hey', 
             description: 'lorem ipsum', 
             photo: 'https://picsum.photos/id/23/200/300'
+        },
+        {
+            statement: 'hi', 
+            description: 'lorem ipsum', 
+            photo: 'https://picsum.photos/id/4/200/300'
         },
         {
             statement: 'hi', 
@@ -37,10 +45,10 @@ const Carousel = () => {
 
       return (
         <div className="carousel">
+            
           <div
             className="inner"
-            style={{ transform: `translate(-${activeIndex * 100}%)`
-         }}
+            style={{ transform: `translate(-${activeIndex * 100}%)` }}
           >
             {items.map((item) => {
               return <CarouselItem item={item} width={"100%"} />;
@@ -54,7 +62,9 @@ const Carousel = () => {
                 updateIndex(activeIndex - 1);
               }}
             >
-              <span className="material-symbols-outlined">arrow_back_ios</span>{" "}
+                <div className="c-icon">
+                    {<ArrowBack/>}
+                </div>
             </button>
             <div className="indicators">
               {items.map((item, index) => {
@@ -66,14 +76,16 @@ const Carousel = () => {
                     }}
                   >
                     <span
+
                       className={`material-symbols-outlined ${
                         index === activeIndex
                           ? "indicator-symbol-active"
                           : "indicator-symbol"
                       }`}
-                    >
-                      radio_button_checked
+                    ><div className="c-icon">{<RadioButtonChecked/>}</div>
+                      
                     </span>
+  
                   </button>
                 );
               })}
@@ -84,7 +96,9 @@ const Carousel = () => {
                 updateIndex(activeIndex + 1);
               }}
             >
-              <span className="material-symbols-outlined">arrow_forward_ios</span>
+              <div className="c-icon">
+                {<ArrowForward/>}
+              </div>
             </button>
           </div>
         </div>
@@ -92,3 +106,7 @@ const Carousel = () => {
 }
 
 export default Carousel;
+
+
+
+
