@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing'
-
+import Profile from './components/ManageProfile'
 import Product from './components/Product';
 import ProductForm from './components/ProductForm';
 import BusinessForm from './components/BusinessForm'
@@ -33,6 +33,7 @@ function App(){
                     <Route path="/browsing" element={ <Browsing /> }/>
                     <Route path = "/SelectProducts" element={<SelectProducts/>}/>
                     <Route path = "/ConfigBusinessPromo" element={<ConfigBusinessPromo/>}/>
+                    <Route path = "/ProfilePage" element={<Profile/>}/>
                 </Routes>
 
                 
