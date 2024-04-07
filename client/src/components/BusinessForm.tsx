@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
-import './Forms.css'
+// import './Forms.css'
 import { useNavigate } from "react-router-dom";
 import {
     fetchUserAttributes,
@@ -151,64 +151,102 @@ function BusinessForm() {
     }
 
     return (
-    <div className="App">
+
+        <div>
         <Navbar></Navbar>
-        <h1>
-            {header} 
-        </h1>
-        <form onSubmit={handleSubmit}>
-            <label>Business Name:
-                <input
+          <a href="https://front.codes/" className="logo" target="_blank">
+
+</a>
+
+<div className="section">
+<div className="container">
+  <div className="row full-height justify-content-center">
+    <div className="col-12 text-center align-self-center py-5">
+      <div className="section pb-5 pt-5 pt-sm-2 text-center">
+        
+              
+        <div className="card-3d-wrap mx-auto">
+          <div className="card-3d-wrapper">
+            <div className="card-front">
+              <div className="center-wrap" >
+                <div className="section text-center">
+                  <h4 className="mb-4 pb-3">Update Business Profile</h4>
+                  <div className="form-group">
+                  <input
                     type="text"
                     name="name"
                     value={businessInfo.name || ""}
                     onChange={handleChange}
+                    className="form-style"
+                    placeholder="Business Name"
                 />
-            </label><br/>
-            <label>Contact Email:
-                <input
+                    <i className="input-icon uil uil-at"></i>
+                  </div>  
+                  <div className="form-group mt-2">
+                  <input
                     type="text"
                     name="email"
                     value={businessInfo.email || ""}
                     onChange={handleChange}
-                />
-            </label><br/>
-            <label>Website:
-                <input
+                    className="form-style"
+                    placeholder="Contact Email"
+                    />
+                        <i className="input-icon uil uil-lock-alt"></i>
+                  </div>
+                  <div className="form-group mt-2">
+                  <input
                     type="text"
                     name="url"
                     value={businessInfo.url || ""}
                     onChange={handleChange}
+                    className="form-style"
+                    placeholder="Website Url"
                 />
-            </label><br/>
-            <label>Description:
-                <input
+                        <i className="input-icon uil uil-lock-alt"></i>
+                  </div>
+                  <div className="form-group mt-2">
+                  <input
                     type="text"
                     name="description"
                     value={businessInfo.description || ""}
                     onChange={handleChange}
+                    className="form-style"
+                    placeholder="Description"
                 />
-            </label><br/>
-            <label>Product Image:
-                <input 
+                        <i className="input-icon uil uil-lock-alt"></i>
+                  </div>
+                  <div className="form-group mt-2">
+                  <input 
                     type="file" 
                     name="image" 
                     accept="image/*"
                     onChange={handleFileSelect}
+                    className="form-style"
                 />
-            </label><br/>
-            <img src={previewFile}/><br/>
-            <input type="submit" />
-        </form>
-        <div>
-            {/* options to advertise */}
-            <button className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</button>
-        <div>
-        </div>
-            <button className= "secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
+                        <i className="input-icon uil uil-lock-alt"></i>
+                  </div>
+                  <a href="#" type="submit"className="btn mt-4">submit</a>
 
+                  
+
+                  <button className="btn mt-4" onClick={navToSelectProducts}>Click Here to feature products</button>
+                  <button className= "btn mt-4" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
+                                
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+  </div>
+</div>
+
     </div>
+
+
+
     );
 }
 export default BusinessForm;
