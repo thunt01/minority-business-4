@@ -37,7 +37,7 @@ function ProductForm({ productID }) {
 
     const handleChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;
+        const value = event.target.value.replace("'", "''");
         setProductInfo(values => ({...values, [name]: value}))
     }
 

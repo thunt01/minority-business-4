@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Carousel from "./Carousel";
+//import Carousel from "./Carousel";
+import FeaturedCarousel from "./FeaturedCarousel";
 
 
 // we need to figure out an example image situation 
@@ -50,7 +51,7 @@ const ShowBusinessPromo = () => {
 
     return (
         <div>
-        <Carousel></Carousel>
+        <FeaturedCarousel></FeaturedCarousel>
       </div>
       );
 
