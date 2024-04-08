@@ -48,12 +48,13 @@ const Search = () => {
     
     return (
         <div>
-            <div className="input-wrapper">
+            <div className='input-wrapper'>
                 <FaSearch id="search-icon" />
                 <ul>
-                    <form id="search">
+                    <form id="search" className='form'>
                         
                         <input
+                            
                             type="search"
                             placeholder="Search product..."
                             value={searchTerm}
