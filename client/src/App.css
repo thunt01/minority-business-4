@@ -1,6 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 
 p {
   font-weight: 500;
@@ -16,15 +21,11 @@ h6 span{
   font-weight: 700;
 }
 
-
-
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Reem Kufi", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 .img { 
   max-width: 100%;
@@ -41,7 +42,7 @@ h6 span{
 
 .App {
   min-height: 100vh;
-  width: 85vw;
+  width: 100vw;
   max-width: 1900px;
   margin: 0rem auto;
 }
@@ -59,6 +60,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   min-height: 90px;
+  background: transparent
+  
 }
 .navbar-menu-container {
   display: none;
@@ -92,11 +95,33 @@ nav {
   cursor: pointer;
 }
 .home-banner-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(33, 33, 33, 0.279),
+   rgba(33, 33, 33, 0.887)), url('./assets/businessphoto.JPG');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.home-text-section{
+  text-align: left;
+  padding: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: flex-start;
+}
+
+/* .home-banner-container {
   position: relative;
   display: flex;
   padding-top: 3rem;
-}
-.home-bannerImage-container {
+} */
+/* .home-bannerImage-container {
   position: absolute;
   top: -100px;
   right: -170px;
@@ -113,26 +138,31 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-}
+} */
+
 .primary-heading {
   font-size: clamp(2rem, 5vw, 4rem);
-  color: #ffffff;
+  color: #ebe9e9;
   /* line-height: 5rem; */
   max-width: 600px;
+  margin-bottom: 2rem; /* Increase the bottom margin */
 }
 .primary-text {
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1.1rem, 1vw, 1.5rem);
   max-width: 500px;
-  color: #ffffff;
-  margin: 1.5rem 0rem;
+  color: #f4f1f1;
+  
+  margin-top: 1rem; /* Increase the top margin */
+  margin-bottom: 1rem
+  
 }
 .secondary-button {
-  padding: 1rem 2.5rem;
+  padding: 0.8rem 1.2rem;
   background-color: #000080;
   outline: none;
   border: none;
   border-radius: 5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
   font-weight: 600;
   color: white;
@@ -140,10 +170,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
 }
 .secondary-button svg {
+  
   margin-left: 0.75rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 .secondary-button:hover {
   background-color: #CC5500;
@@ -510,7 +542,7 @@ body{
   font-size: 15px;
   line-height: 1.7;
   color: #ffffff;
-  background-color: #74757b;
+  background-color: #78797a;
   overflow-x: hidden;
 }
 a {
