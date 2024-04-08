@@ -100,6 +100,15 @@ app.get('/products', (req, res) => {
     });
 });
 
+app.get('/business', (req, res) => {
+    con.connect(function(err) {
+        con.query(`SELECT * FROM main.Businesses`, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.json({ result: result });;
+        });
+    });
+});
+
 app.get('/search/products/:product_name/:sort', (req, res) => {
     // http://localhost:8000/search/products/
     search_client.index('ProductID').updateFilterableAttributes([

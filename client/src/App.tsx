@@ -25,7 +25,7 @@ function App(){
                 <Routes>
                     <Route path="/" element={ <Landing /> }/>
                     <Route path="/Login" element={<Login />} />
-                    <Route path="/ProductForm" element={ <ProductForm productID={1} /> }/>
+                    <Route path="/ProductForm" element={ <ProductForm productID={-1} /> }/>
                     <Route path="/BusinessForm" element={ <BusinessForm /> }/>
                     <Route path="/product/:ProductID" element={ <Product /> }/>
                     <Route path="/business/:BusinessID" element={ <Business /> }/>
