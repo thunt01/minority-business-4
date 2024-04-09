@@ -7,8 +7,12 @@ import {
     updateUserAttribute,
     type UpdateUserAttributeOutput
   } from 'aws-amplify/auth';
-import { Description } from "@mui/icons-material";
-import { Button } from "@mui/material";
+
+import WorkIcon from '@mui/icons-material/Work';
+import EmailIcon from '@mui/icons-material/Email';
+import LinkIcon from '@mui/icons-material/Link';
+import DescriptionIcon from '@mui/icons-material/Description';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 function BusinessForm() {
     
@@ -158,11 +162,11 @@ function BusinessForm() {
 
 </a>
 
-<div className="section">
+<div className="section " >
 <div className="container">
   <div className="row full-height justify-content-center">
     <div className="col-12 text-center align-self-center py-5">
-      <div className="section pb-5 pt-5 pt-sm-2 text-center">
+      <div className="section pb-0 pt-0 pt-sm-2 text-center">
         
               
         <div className="card-3d-wrap mx-auto">
@@ -170,7 +174,9 @@ function BusinessForm() {
             <div className="card-front">
               <div className="center-wrap" >
                 <div className="section text-center">
-                  <h4 className="mb-4 pb-3">Update Business Profile</h4>
+                  <h4 
+                  
+                  className="h4-for-forms">Update Business Profile</h4>
                   <div className="form-group">
                   <input
                     type="text"
@@ -180,7 +186,9 @@ function BusinessForm() {
                     className="form-style"
                     placeholder="Business Name"
                 />
-                    <i className="input-icon uil uil-at"></i>
+                    <i className="input-icon uil uil-at">
+                      <WorkIcon></WorkIcon>
+                    </i>
                   </div>  
                   <div className="form-group mt-2">
                   <input
@@ -191,7 +199,9 @@ function BusinessForm() {
                     className="form-style"
                     placeholder="Contact Email"
                     />
-                        <i className="input-icon uil uil-lock-alt"></i>
+                        <i className="input-icon uil uil-lock-alt">
+                          <EmailIcon></EmailIcon>
+                        </i>
                   </div>
                   <div className="form-group mt-2">
                   <input
@@ -202,7 +212,9 @@ function BusinessForm() {
                     className="form-style"
                     placeholder="Website Url"
                 />
-                        <i className="input-icon uil uil-lock-alt"></i>
+                        <i className="input-icon uil uil-lock-alt">
+                          <LinkIcon></LinkIcon>
+                        </i>
                   </div>
                   <div className="form-group mt-2">
                   <input
@@ -213,7 +225,9 @@ function BusinessForm() {
                     className="form-style"
                     placeholder="Description"
                 />
-                        <i className="input-icon uil uil-lock-alt"></i>
+                        <i className="input-icon uil uil-lock-alt">
+                          <DescriptionIcon></DescriptionIcon>
+                        </i>
                   </div>
                   <div className="form-group mt-2">
                   <input 
@@ -223,14 +237,16 @@ function BusinessForm() {
                     onChange={handleFileSelect}
                     className="form-style"
                 />
-                        <i className="input-icon uil uil-lock-alt"></i>
+                        <i className="input-icon uil uil-lock-alt">
+                          <AttachFileIcon></AttachFileIcon>
+                        </i>
                   </div>
-                  <a href="#" type="submit"className="btn mt-4">submit</a>
-
+                  <a href="#" type="submit"className="secondary-button">submit</a>
+                  <a href="#" type="submit"className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</a>
+                  <a href="#" type="submit"className="secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</a>
                   
 
-                  <button className="btn mt-4" onClick={navToSelectProducts}>Click Here to feature products</button>
-                  <button className= "btn mt-4" onClick={navToConfigBusinessPromo}>Click Here to feature business</button>
+                  
                                 
                     </div>
                   </div>
