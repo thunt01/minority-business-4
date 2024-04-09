@@ -36,10 +36,6 @@ const SearchResults = () => {
         backgroundColor: state.isFocused ? '#ffa500' : 'transparent',
         color: state.isFocused ? '#fff' : '#333',
       }),
-      singleValue: (provided, state) => ({
-        ...provided,
-        padding: '6px 6px',
-      }),
       indicatorsContainer: (provided, state) => ({
         ...provided,
         height: '25px',

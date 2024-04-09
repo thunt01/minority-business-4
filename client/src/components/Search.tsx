@@ -47,11 +47,11 @@ const Search = () => {
     }};
     
     return (
-        <div>
+        <div className='SearchCSS'>
             <div className='input-wrapper'>
                 <FaSearch id="search-icon" />
                 <ul>
-                    <form id="search" className='form'>
+                    <form id="search">
                         
                         <input
                             
