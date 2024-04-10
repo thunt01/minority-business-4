@@ -14,6 +14,9 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
+h1, h2 {
+  color: white !important;
+}
 h4 {
   font-weight: 600;
 }
@@ -75,8 +78,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   min-height: 90px;
-  background: transparent
-  
+  border-radius: 50px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+  margin: 20px;
 }
 .navbar-menu-container {
   display: none;
@@ -87,6 +91,13 @@ nav {
   color: #ebe9e9;
   font-size: 1.1rem;
   font-weight: 600;
+}
+.card {
+  box-shadow: 0 10px 10px rgb(0, 0, 0);
+  border-radius: 10px;
+}
+.sign-out-icon {
+  color:white !important;
 }
 .primary-button {
   padding: 0.9rem 1.75rem;
@@ -562,7 +573,6 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
-
 h6 span{
   padding: 0 20px;
   text-transform: uppercase;

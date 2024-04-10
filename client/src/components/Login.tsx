@@ -81,7 +81,7 @@ export default function Login() {
             
          <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
         {MenuList.map((menu) => (
-              <Link to={menu.route} key={menu.name} style={{ textDecoration: 'none' }}>
+              <Link className='card' to={menu.route} key={menu.name} style={{ textDecoration: 'none' }}>
           <Card sx={{ maxWidth: "320px", display: "flex", m: 2 }}>
             <CardActionArea>
               <CardMedia
