@@ -15,7 +15,15 @@ body {
 
 .carousel-img {
     display: flex;
-    height: 500px !important;
-    justify-content:center;
-    margin: 0 auto;
+    height: 700px !important;
+    max-width: 700px;
+    margin: auto;
 }
+
+.carousel-slide {
+  align-content: center;
+}
+
+/* .carousel {
+  max-width: 700px;
+} */
