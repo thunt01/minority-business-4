@@ -47,7 +47,7 @@ const SearchResults = () => {
     };
 
     return (
-        <div>
+        <div className='search-results-page'>
             <Navbar></Navbar>
             <Search></Search>
             <div id='select-align'>

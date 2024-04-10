@@ -28,7 +28,6 @@ const Product = () => {
     currentAuthenticatedUser();
     const listItems = results.map((product: any) => (
         <ProductRow props={product}></ProductRow>
-        
     ));
 
     return (
