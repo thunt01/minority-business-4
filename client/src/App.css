@@ -1,3 +1,5 @@
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -52,7 +54,7 @@ h6 span{
 }
 
 .body {
-  background-color: #f6f6f6;
+  background-color: #1f2029;
 }
 
 nav {
@@ -69,13 +71,13 @@ nav {
 .navbar-links-container a {
   margin-right: 3rem;
   text-decoration: none;
-  color: black;
+  color: #ebe9e9;
   font-size: 1.1rem;
   font-weight: 600;
 }
 .primary-button {
   padding: 0.9rem 1.75rem;
-  background-color: white;
+  background-color: #000080;
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -88,7 +90,7 @@ nav {
   font-size: 1.15rem;
 }
 .primary-button:hover {
-  background-color: rgb(234, 234, 234);
+  background-color:#CC5500;
 }
 .navbar-menu-container svg {
   font-size: 1.5rem;
@@ -97,7 +99,7 @@ nav {
 .home-banner-container {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(rgba(33, 33, 33, 0.279),
+  background: linear-gradient(rgba(33, 33, 33, 0.231),
    rgba(33, 33, 33, 0.887)), url('./assets/businessphoto.JPG');
   background-position: center;
   background-size: cover;
@@ -542,7 +544,7 @@ body{
   font-size: 15px;
   line-height: 1.7;
   color: #ffffff;
-  background-color: #78797a;
+  background-color: #1f2029;
   overflow-x: hidden;
 }
 a {
