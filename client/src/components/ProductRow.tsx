@@ -58,35 +58,39 @@ const ProductRow = (props) => {
     setInWishlist(false);
   }
 
+  // const WishlistAdd = (
+  //   <button type="button" className="btn btn-outline-success ms-5" onClick={handleAddWishlist}>
+  //     <WishlistAddIcon></WishlistAddIcon>
+  //   </button>
+  // )
   const WishlistAdd = (
-    <button type="button" className="btn btn-outline-success" onClick={handleAddWishlist}>
-      <WishlistAddIcon></WishlistAddIcon> Add
+    <button type="button" className="btn btn-outline-success ms-5" onClick={handleAddWishlist}>
+      <WishlistAddIcon/>
     </button>
   )
   const WishlistRemove = (
-    <button type="button" className="btn btn-outline-danger" onClick={handleRemoveWishlist}>
-      <WishlistRemoveIcon></WishlistRemoveIcon> Remove
+    <button type="button" className="btn btn-outline-danger ms-5" onClick={handleRemoveWishlist}>
+      <WishlistRemoveIcon></WishlistRemoveIcon>
     </button>
   )
-//<a href={`/product/${props.props.ProductID}`} className="box">
+
   return (
     <div>
         <div className="row product">
-        <div className="col-md-2 product-image">
-            <img src={props.props.ImageName ? "https://culture-cart-s3-images.s3.amazonaws.com/" + props.props.ImageName : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={"No Image"} height="150" />
-        </div>
+          <a href={`/product/${props.props.ProductID}`} className="col-md-2 product-image">
+              <img src={props.props.ImageName ? "https://culture-cart-s3-images.s3.amazonaws.com/" + props.props.ImageName : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={"No Image"} height="150" />
+          </a>
           <a href={`/product/${props.props.ProductID}`} className="col-md-8 product-detail box">
               <h4>{props.props.Name}</h4>
               <p>{props.props.Description}</p>
           </a>
-        <div className="col-md-2 product-price">
-            {"$" + props.props.Price}
-            <div className='inline'>
-              {inWishlist ? WishlistRemove :WishlistAdd}
-            </div>
-
-            
-        </div>
+          <div className="col-md-1 product-price">
+              {"$" + props.props.Price}
+              
+          </div>
+          <div className='col-md-1'>
+            {inWishlist ? WishlistRemove :WishlistAdd}
+          </div>
         </div>
     </div>
   );
