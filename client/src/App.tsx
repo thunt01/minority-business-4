@@ -2,13 +2,13 @@
 
 import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
+import Favicon from "react-favicon";
 import Landing from './components/Landing'
 import Profile from './components/ManageProfile'
 import Product from './components/Product';
 import ProductForm from './components/ProductForm';
 import BusinessForm from './components/BusinessForm'
 import Browsing from './components/Browsing'
-
 import Login from './components/Login';
 import SearchResults from './components/SearchResults';
 import Business from './components/Business';
@@ -18,10 +18,13 @@ import ConfigBusinessPromo from "./components/ConfigBusinessPromo";
 function App(){
 
     const [BusinessName, setBusinessName] = useState('');
+
     
+
 
     return (    
         <div className='App'>
+                
                 <Routes>
                     <Route path="/" element={ <Landing /> }/>
                     <Route path="/Login" element={<Login />} />
