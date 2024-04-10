@@ -204,7 +204,7 @@ nav {
   font-size: 1.15rem;
 }
 .primary-heading, .primary-text{
-  color: #000000
+  color: white;
 }
 .about-buttons-container {
   margin-top: 2rem;
@@ -541,7 +541,7 @@ body{
   font-size: 15px;
   line-height: 1.7;
   color: #ffffff;
-  background-color: #1f2029;
+  background-color: #1f2029 !important;
   overflow-x: hidden;
 }
 a {
