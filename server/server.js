@@ -188,6 +188,17 @@ app.get('/business/products/:business_id', (req, res) => {
     })
 });
 
+app.get('/wishlist/:user_id/:product_id', (req, res) => {
+    con.connect(function(err) {
+        const sql = `SELECT * FROM Wishlists WHERE (CognitoAccountID = '${req.params.user_id}' AND ProductID = '${req.params.product_id}');`;
+        con.query(sql, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.send(result);
+        })
+    })
+});
+
+
 app.get('/business/:business_id', (req, res) => {
     con.connect(function(err) {
         //combine businesses + business
@@ -221,6 +232,29 @@ app.post('/adduser', (req, res) => {
         con.query(sql, function (err, result) {
             if (err) res.send(err);
             if (result) res.send(req.body);
+        })
+    } else {
+        console.log('Missing a parameter');
+    }
+});
+
+app.post('/addToWishlist', (req, res) => {
+    if (req.body.userID && req.body.productID) {
+        const sql = `INSERT INTO Wishlists (CognitoAccountID, ProductID) VALUES ('${req.body.userID}', '${req.body.productID}');`;
+        con.query(sql, function (err, result) {
+            if (err) res.send(err);
+            if (result) {res.send(result); console.log(result);}
+        })
+    } else {
+        console.log('Missing a parameter');
+    }
+});
+app.post('/deleteFromWishlist', (req, res) => {
+    if (req.body.userID && req.body.productID) {
+        const sql = `DELETE FROM Wishlists WHERE (CognitoAccountID = '${req.body.userID}' AND ProductID = '${req.body.productID}');`;
+        con.query(sql, function (err, result) {
+            if (err) res.send(err);
+            if (result) res.send(true);
         })
     } else {
         console.log('Missing a parameter');

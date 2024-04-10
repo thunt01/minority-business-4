@@ -36,18 +36,19 @@ const Product = () => {
             <Search></Search>
             <div className='m-5'>
                 <h1>Exciting Businesses</h1>
-                    <FeaturedCarousel/>
+                <div className='m-5'><FeaturedCarousel/></div>
 
             {currentUser && (
                 <div>
                     <h1>Featured Products</h1>
-                    <ShowHighlightedProducts></ShowHighlightedProducts>
+
+                    <div className='m-5'><ShowHighlightedProducts/></div>
                     
                 </div>
             )}
 
                 <h1>Browsing</h1>
-                {listItems}
+                <div className='m-5'>{listItems} </div>
             </div>
         </div>
     );

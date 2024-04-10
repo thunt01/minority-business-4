@@ -39,8 +39,6 @@ const FeaturedCarousel = () => {
             </Carousel.Caption>
         </Carousel.Item>
     ));
-    console.log("cI",carouselReact)
-
 
     return (
         
