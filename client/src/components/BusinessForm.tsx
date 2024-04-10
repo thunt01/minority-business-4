@@ -241,7 +241,7 @@ function BusinessForm() {
                           <AttachFileIcon></AttachFileIcon>
                         </i>
                   </div>
-                  <a href="#" type="submit"className="secondary-button">submit</a>
+                  <a href="#" type="submit"className="secondary-button">Submit</a>
                   <a href="#" type="submit"className="secondary-button" onClick={navToSelectProducts}>Click Here to feature products</a>
                   <a href="#" type="submit"className="secondary-button" onClick={navToConfigBusinessPromo}>Click Here to feature business</a>
                   
