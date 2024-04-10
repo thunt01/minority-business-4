@@ -17,7 +17,7 @@ const Product = () => {
     useEffect(() => {
         fetch('/product/' + product_id)
             .then((res) => res.json())
-            .then((data) => {setProduct(data.name); setPrice(data.price); setDescription(data.description); setURL(data.url); setImage(data.ImageName); setBusinessID(data.businessid);});
+            .then((data) => {setProduct(data.name); setPrice(data.price); setDescription(data.description); setURL(data.url); setImage(data.imagename); setBusinessID(data.businessid);});
     }, [product_id]);
 
     useEffect (() => {
@@ -31,17 +31,19 @@ const Product = () => {
         <div>
             <Navbar></Navbar>
             <Search></Search>
-            <div className='product-info'> 
+            <div className='product'> 
                 <div>
                     <h1>{productName}</h1>
                     <img src={productImage ? "https://culture-cart-s3-images.s3.amazonaws.com/" + productImage : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={"No Image"} height="150" />
                 </div>
-                <div>
-                    <div>${productPrice}</div>
-                    <div>{productDescription}</div>
-                    <div>{productURL}</div>
+                <div className='product-info'>
+                    <div>Price: ${productPrice}</div>
+                    <div>About: {productDescription}</div>
                     <div>
-                        <a href={`/business/${businessID}`}> {businessName} </a>
+                        Buy here: <a href={productURL}> {productURL} </a>
+                    </div>
+                    <div>
+                        Brought to you by: <a href={"/business/" + businessID}> {businessName} </a>
                     </div>
                 </div>
             </div>

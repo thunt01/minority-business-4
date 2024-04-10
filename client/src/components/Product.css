@@ -1,7 +1,14 @@
+.product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    border: 2rem;
+}
+
 .product-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 50px;
-    justify-items: center;
+    justify-items: left;
 }
