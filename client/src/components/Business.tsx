@@ -7,6 +7,7 @@ import './Business.css';
 const Business = () => {
     const [businessName, BusinessName] = useState("");
     const [businessDescription, setDescription] = useState("");
+    const [businessURL, setURL] = useState("");
     const [businessEmail, setEmail] = useState("");
     const [products, setProducts] = useState([]);
 
@@ -14,7 +15,7 @@ const Business = () => {
     useEffect(() => {
       fetch('/business/' + business_id)
         .then((res) => res.json())
-        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email)});
+        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email); setURL(data.url);});
     }, [business_id]);
 
     useEffect(() => {
@@ -40,7 +41,11 @@ const Business = () => {
         <Search></Search>
             <div className="grid-container">
                 <div className='dashboard'>
-                    <h1 className="business-name">{businessName}</h1>
+                    <h1 className="business-name">
+                        <a href={businessURL}>
+                            {businessName}
+                        </a>
+                    </h1>
                     <div className='products-listed'>
                         <h2>Products Listed</h2>
                         {listItems}
@@ -58,9 +63,7 @@ const Business = () => {
                 </div>
                 <div className='insights'>
                     <h2>Business Insights</h2>
-                insights insightsinsightsinsightsinsightsinsightsinsightsinsights insightsinsightsinsightsinsightsinsightsinsightsinsights
-
-                insightsinsightsinsightsinsightsinsightsinsightsinsights insightsinsightsinsightsinsightsinsightsinsights
+                    <img src={require('../assets/Customer Actions from GMB.png')}></img>
                 </div>
             </div>
         </div>
