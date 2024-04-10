@@ -1,0 +1,32 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px;
+    justify-items: center;
+}
+
+.business-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.dashboard {
+    justify-content: center;
+    align-items: center;
+}
+
+.insights {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+.insights,
+.products-listed,
+.business-description,
+.business-contact,
+.listed-products {
+    padding: 20px;
+    border: 1px solid #ccc;
+}

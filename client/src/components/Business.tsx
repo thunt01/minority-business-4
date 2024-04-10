@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from "react-router-dom";
 import Navbar from './Navbar';
 import Search from './Search';
+import './Business.css';
 
 const Business = () => {
     const [businessName, BusinessName] = useState("");
     const [businessDescription, setDescription] = useState("");
+    const [businessURL, setURL] = useState("");
     const [businessEmail, setEmail] = useState("");
     const [products, setProducts] = useState([]);
 
@@ -13,7 +15,7 @@ const Business = () => {
     useEffect(() => {
       fetch('/business/' + business_id)
         .then((res) => res.json())
-        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email)});
+        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email); setURL(data.url);});
     }, [business_id]);
 
     useEffect(() => {
@@ -35,15 +37,35 @@ const Business = () => {
     
     return (
         <div>
-            <Navbar></Navbar>
-            <Search></Search>
-            <h1>{businessName}</h1>
-            <h2>About our business:</h2>
-            {businessDescription}
-            <h2>Check us out here:</h2>
-            {businessEmail}
-            <h2>Listed Products</h2>
-            {listItems}
+        <Navbar></Navbar>
+        <Search></Search>
+            <div className="grid-container">
+                <div className='dashboard'>
+                    <h1 className="business-name">
+                        <a href={businessURL}>
+                            {businessName}
+                        </a>
+                    </h1>
+                    <div className='products-listed'>
+                        <h2>Products Listed</h2>
+                        {listItems}
+                    </div>
+                </div>
+                <div className='business-info'>
+                    <div className="business-description">
+                        <h2>About our business:</h2>
+                        {businessDescription}
+                    </div>
+                    <div className="business-contact">
+                        <h2>Check us out here:</h2>
+                        {businessEmail}
+                    </div>
+                </div>
+                <div className='insights'>
+                    <h2>Business Insights</h2>
+                    <img src={require('../assets/Customer Actions from GMB.png')}></img>
+                </div>
+            </div>
         </div>
     );
 }

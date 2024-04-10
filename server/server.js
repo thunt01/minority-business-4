@@ -174,7 +174,7 @@ app.get('/product/:product_id', (req, res) => {
     con.connect(function(err) {
         con.query(`SELECT * FROM main.Products WHERE ProductID = ` + req.params.product_id + `;`, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL, businessid: result[0].BusinessID});
+            if (result) res.json({ name: result[0].Name, price: result[0].Price, description: result[0].Description, url: result[0].URL, businessid: result[0].BusinessID, imagename: result[0].ImageName});
         });
     });
 });
