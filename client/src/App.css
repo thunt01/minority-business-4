@@ -203,6 +203,9 @@ nav {
   color: #fe9e0d;
   font-size: 1.15rem;
 }
+.primary-heading, .primary-text{
+  color: #000000
+}
 .about-buttons-container {
   margin-top: 2rem;
   display: flex;
