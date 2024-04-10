@@ -2,9 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import App from "../App";
+import ProductRow from "./ProductRow";
 
 // get the products 
-const ShowPromo = () => {
+const ShowHighlightedProducts = () => {
 
 
     const [products, setProducts] = useState([]);
@@ -29,23 +30,30 @@ const ShowPromo = () => {
     
     const results = products;
 
+    // const listItems = results.map((product: any) => (
+    //     <li key={product.Id} className="search-result-item">
+    //         <a href={`/product/${product.ProductID}`}>
+    //             <ul>
+    //             <li>{product.Name}</li>
+    //             <li>{product.Price}</li>
+    //             <li>{product.Description}</li> 
+    //             </ul>
+    //         </a> 
+    //     </li>
+
+       
+    // ));
+
     const listItems = results.map((product: any) => (
-        <li key={product.Id} className="search-result-item">
-            <a href={`/product/${product.ProductID}`}>
-                <ul>
-                <li>{product.Name}</li>
-                <li>{product.Price}</li>
-                <li>{product.Description}</li> 
-                </ul>
-            </a> 
-        </li>
+        <ProductRow props={product}></ProductRow>
+        
     ));
 
     
 
     return (
         <div>
-        <h1 >Product List</h1>
+        
         {listItems}
         
         
@@ -55,4 +63,4 @@ const ShowPromo = () => {
 
 }
 
-export default ShowPromo;
+export default ShowHighlightedProducts;

@@ -15,10 +15,15 @@ const SelectProducts =  () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         // selectedProduct.ProductID is the one being sent over to server.js
-        if (showOnPage) {
-            sendReq(JSON.parse(JSON.stringify({ ProductID : selectedProduct.ProductID })));
+        // if (showOnPage) {
+        //     sendReq(JSON.parse(JSON.stringify({ ProductID : selectedProduct.ProductID })));
+        //     alert('promo updated');
+        // }
+
+        sendReq(JSON.parse(JSON.stringify({ ProductID : selectedProduct.ProductID })));
             alert('promo updated');
-        }
+
+
         setSelectedProduct(null);
     };
 
@@ -52,6 +57,8 @@ const SelectProducts =  () => {
             });
     }, []);
 
+    
+
     return (
         <div>
         <h1 >Product List</h1>
@@ -63,16 +70,31 @@ const SelectProducts =  () => {
                     <p className="product-description">Description: {product.Description}</p>
                     <button className="secondary-button" onClick={() => handleProductClick(product)}>Promo</button>
                     {selectedProduct === product && (
+                        
                             <form className='form-layout'onSubmit={handleFormSubmit}>
                                 <h2>{selectedProduct.Name}</h2>
                                 {/* <input type="checkbox" checked={showOnPage} id ="press1" value= "show"onChange={handleCheckboxChange} />
                                  */}
-                                <label className="checkbox-label">
+
+                                    {/* <div className="form-group">
+                                        Show: checkbox????
+                                        <input type="checkbox" checked={showOnPage} id ="press1" value= "show"onChange={handleCheckboxChange} />
+                                    
+
+
+                                    </div> */}
+
+                                {/* <label className="checkbox-label">
                                     Show:
                                     <input type="checkbox" className="form-checkbox" checked={showOnPage} onChange={handleCheckboxChange} />
-                                </label>
-                                <button className="secondary-button"type="submit">Submit</button>
+                                </label> */}
+
+
+                                    
+                                <button className="secondary-button"type="submit" onClick={handleFormSubmit}>Show On Home Page</button>
                             </form>
+
+                           
                         )}
                 </li>
             ))}
