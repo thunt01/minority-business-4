@@ -58,9 +58,7 @@ const Business = () => {
                 </div>
                 <div className='insights'>
                     <h2>Business Insights</h2>
-                insights insightsinsightsinsightsinsightsinsightsinsightsinsights insightsinsightsinsightsinsightsinsightsinsightsinsights
-
-                insightsinsightsinsightsinsightsinsightsinsightsinsights insightsinsightsinsightsinsightsinsightsinsights
+                    <img src={require('../assets/Customer Actions from GMB.png')}></img>
                 </div>
             </div>
         </div>
