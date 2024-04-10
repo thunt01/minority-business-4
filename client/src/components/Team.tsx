@@ -4,12 +4,12 @@ import ChooseMeals from "../assets/choose-image.png";
 import DeliveryMeals from "../assets/delivery-image.png";
 import THunt from "../assets/chart_with_upwards_trend.png"
 import MSan from "../assets/crossed_fingers.png"
-import MObi from "../assets/dollar.png"
-import AHud from "../assets/earth_africa.png"
-import AMat from "../assets/mag_right.png"
+import MObi from "../assets/ObiHeadshoot.png"
+import AHud from "../assets/AzHud.png"
+import AMat from "../assets/Professional Headshot.png"
 
 const Team = () => {
-    const workInfoData = [
+    const teamInfoData = [
       {
         image: AMat,
         title: "Scrum Master",
@@ -48,16 +48,20 @@ const Team = () => {
           </p>
         </div>
         <div className="team-section-bottom">
-          {workInfoData.map((data) => (
-            <div className="team-section-info" key={data.title}>
-              <div className="info-boxes-img-container">
-                <img src={data.image} alt="" />
-              </div>
-              <h2>{data.title}</h2>
-              <p>{data.text}</p>
-            </div>
-          ))}
-        </div>
+  {teamInfoData.map((data) => (
+    <div className="team-section-info" key={data.title}>
+      <div className="info-boxes-img-container">
+        <img
+          src={data.image}
+          alt=""
+          style={{ width: '250px', height: '230px', marginRight: '10px', marginLeft:'10px', borderRadius: '30px'}}
+        />
+      </div>
+      <h2>{data.title}</h2>
+      <p>{data.text}</p>
+    </div>
+  ))}
+</div>
       </div>
     );
   };

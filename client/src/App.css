@@ -382,7 +382,7 @@ nav {
 .team-section-info {
   width: 290px;
   min-height: 350px;
-  background-color: white;
+  background-color: rgba(196, 194, 194, 0.383);
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
@@ -390,7 +390,7 @@ nav {
   align-items: center;
   text-align: center;
   border-radius: 1rem;
-  color: #505050;
+  color: #000000;
   margin: 1rem 2rem;
 }
 .team-section-info h2 {
