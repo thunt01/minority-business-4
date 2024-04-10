@@ -25,11 +25,9 @@ export function SearchFn({ product_name, sort_by } : SearchProps) {
     const listItems = results.map((product: any) => (
         <li key={product.Id} className="search-result-item">
             <a href={`/product/${product.ProductID}`}>
-                <ul>
-                <li>{product.Name}</li>
-                <li>{product.Price}</li>
-                <li>{product.Description}</li> 
-                </ul>
+                <div>{product.Name}</div>
+                <div>{product.Price}</div>
+                <div>{product.Description}</div>
             </a> 
         </li>
     ));
@@ -47,11 +45,11 @@ const Search = () => {
     }};
     
     return (
-        <div>
+        <div className='SearchCSS'>
             <div className='input-wrapper'>
                 <FaSearch id="search-icon" />
                 <ul>
-                    <form id="search" className='form'>
+                    <form id="search">
                         
                         <input
                             

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Search from './Search';
 import { fetchUserAttributes } from 'aws-amplify/auth';
-import ShowPromo from './ShowPromo';
+import ShowHighlightedProducts from './ShowHighlightedProducts';
 import ShowBusinessPromo from './ShowBusinessPromo';
 import ProductRow from './ProductRow';
 import FeaturedCarousel from './FeaturedCarousel';
@@ -28,44 +28,27 @@ const Product = () => {
     currentAuthenticatedUser();
     const listItems = results.map((product: any) => (
         <ProductRow props={product}></ProductRow>
-        // <div className='browsingContainer'>
-        //     <div className="box">
-        //         <div className="box-row">
-        //             <img src={"https://culture-cart-s3-images.s3.amazonaws.com/" + product.ImageName} className='box-cell box1'/>
-        //             <div className='box-cell box2'>
-        //                 <li key={product.Id} className="search-result-item">
-                            
-        //                         <a href={`/product/${product.ProductID}`}>
-        //                             <ul>
-        //                             <li>{product.Name}</li>
-        //                             <li>{product.Price}</li>
-        //                             <li>{product.Description}</li> 
-        //                             </ul>
-        //                         </a>    
-        //                 </li>  
-        //             </div> 
-        //         </div>
-        //     </div>
-        // </div>
     ));
 
     return (
         <div>
             <Navbar></Navbar>
             <Search></Search>
-            
-            <h1>Featured</h1>
-            <FeaturedCarousel></FeaturedCarousel>
+            <div className='m-5'>
+                <h1>Exciting Businesses</h1>
+                    <FeaturedCarousel/>
 
             {currentUser && (
                 <div>
                     <h1>Featured Products</h1>
+                    <ShowHighlightedProducts></ShowHighlightedProducts>
                     
                 </div>
             )}
 
-            <h1>Browsing</h1>
-            {listItems}
+                <h1>Browsing</h1>
+                {listItems}
+            </div>
         </div>
     );
 }

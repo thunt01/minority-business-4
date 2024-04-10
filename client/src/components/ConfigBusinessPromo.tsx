@@ -25,12 +25,9 @@ const ConfigBusinessPromo = () => {
 
 
     const handleSubmit =  (event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
-        const stuff = JSON.parse(JSON.stringify({title: configInfo.title, message: configInfo.message, url: configInfo.url}));
 
-        console.log('stuff',stuff);
-        sendReq(stuff); 
-        console.log('is it this',JSON.stringify(configInfo));
+      alert("Advertisement configured! Your business is now live on CultureCart 🎉")
+       
 
        
     }
@@ -63,48 +60,26 @@ const ConfigBusinessPromo = () => {
                 <div className="card-front">
                   <div className="center-wrap" >
                     <div className="section text-center">
-                      <h4 className="mb-4 pb-3">Config Business Promo</h4>
-                      <div className="form-group">
-                        <input 
-                                type = "text" 
-                                className="form-style"
-                                placeholder="Add a title"
-                                id = "title" 
-                                name = "title" 
-                                value={configInfo.title || ""}
-                                onChange={handleInputChange}
-                                autoComplete="off">
-                                
-                                
-                            </input>
-                        <i className="input-icon uil uil-at"></i>
-                      </div>  
-                      <div className="form-group mt-2">
-                        <input 
-                                type = "text" 
-                                id = "message" 
-                                className="form-style"
-                                placeholder="Leave a message"
-                                name = "message" 
-                                value = {configInfo.message || ""}
-                                onChange={handleInputChange}>
+                      <h4 className="h4-for-forms">Promotional Setup Agreement</h4>
+                      
+                      <div>By submitting this form, you acknowledge and 
+                        agree to have your business promoted on CultureCart. 
+                        This entails that all active users of our platform will 
+                        have access to view your advertisement and directly access 
+                        your online storefront. </div>
 
-                            </input>
-                            <i className="input-icon uil uil-lock-alt"></i>
+                      <div>
+                      Rest assured, our aim is to facilitate growth and visibility 
+                      for your business within our vibrant community. Should you have 
+                      any concerns or require further clarification regarding the promotion of 
+                      your business on CultureCart, please do not hesitate to reach out to our support 
+                      team
                       </div>
-                      <div className="form-group mt-2">
-                      <input 
-                            type="url" 
-                            name="url" 
-                            id="url" 
-                            className="form-style"
-                            placeholder="add image (https://example.com)" 
-                            pattern="https://.*" 
-                            value = {configInfo.url || ""}
-                            onChange={handleInputChange}/>
-                            <i className="input-icon uil uil-lock-alt"></i>
-                      </div>
-                      <a href="#" type="submit"className="btn mt-4">submit</a>
+                      
+                      <a href="#" 
+                        type="submit"
+                        className="secondary-button"
+                        onClick={handleSubmit}>I agree, promote my business</a>
                                     
                         </div>
                       </div>
