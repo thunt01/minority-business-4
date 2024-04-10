@@ -51,8 +51,8 @@ const ShowBusinessPromo = () => {
 
     return (
         <div>
-        <FeaturedCarousel></FeaturedCarousel>
-      </div>
+            <FeaturedCarousel/>
+        </div>
       );
 
     

@@ -25,13 +25,17 @@ const FeaturedCarousel = () => {
     }, []);
 
     //const results = features; // we'll turn this into an array of objects for the carousel. 
+    const divStyle = {
+        color: "white",
+        textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+      };
 
     const carouselReact = results.map((business: any, index: number) => (   
         <Carousel.Item>
             <img className="d-block w-100 carousel-img" src={"https://culture-cart-s3-images.s3.amazonaws.com/" + business.ImageName}></img>
-            <Carousel.Caption className="text-white bg-transparent">
-                <h3>{business.Name}</h3>
-                <p>{business.Description}</p>
+            <Carousel.Caption  style={divStyle}>
+                <h3 >{business.Name}</h3>
+                <p >{business.Description}</p>
             </Carousel.Caption>
         </Carousel.Item>
     ));

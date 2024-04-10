@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import { Routes, Route } from 'react-router-dom';
-import Favicon from "react-favicon";
+//import Favicon from "react-favicon";
 import Landing from './components/Landing'
 import Profile from './components/ManageProfile'
 import Product from './components/Product';
