@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
 //import './Forms.css'
 import {fetchUserAttributes,} from 'aws-amplify/auth';
+import SellIcon from '@mui/icons-material/Sell';
+import BadgeIcon from '@mui/icons-material/Badge';
+import DescriptionIcon from '@mui/icons-material/Description';
+import LinkIcon from '@mui/icons-material/Link';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 //import { ImportsNotUsedAsValues } from "typescript";
 
 //form checking (correct types, correct length, '/', "")
@@ -107,56 +112,121 @@ function ProductForm({ productID }) {
     }
 
     return (
+
+  
+
     <div className="App">
+        <div>
         <Navbar></Navbar>
-        <h1>
-            {header} 
-        </h1>
-        <form onSubmit={handleSubmit}>
-            <label>Product Name:
-                <input
-                    type="text"
-                    name="name"
-                    value={productInfo.name || ""}
-                    onChange={handleChange}
-                />
-            </label><br/>
-            <label>Price:
-                <input
-                    type="text"
-                    name="price"
-                    value={productInfo.price || ""}
-                    onChange={handleChange}
-                />
-            </label><br/>
-            <label>Description:
-                <input
-                    type="text"
-                    name="description"
-                    value={productInfo.description || ""}
-                    onChange={handleChange}
-                />
-            </label><br/>
-            <label>URL:
-                <input
-                    type="text"
-                    name="url"
-                    value={productInfo.url || ""}
-                    onChange={handleChange}
-                />
-            </label><br/>
-            <label>Product Image:
-                <input 
-                    type="file" 
-                    name="image" 
-                    accept="image/*"
-                    onChange={handleFileSelect}
-                />
-            </label><br/>
-            <img src={previewFile}/><br/>
-            <input type="submit"/>
-        </form>
-    </div>
+          <a href="https://front.codes/" className="logo" target="_blank"></a>
+
+        <div className="section " >
+        <div className="container">
+        <div className="row full-height justify-content-center">
+            <div className="col-12 text-center align-self-center py-5">
+            <div className="section pb-0 pt-0 pt-sm-2 text-center">
+                
+                    
+                <div className="card-3d-wrap mx-auto">
+                <div className="card-3d-wrapper">
+                    <div className="card-front">
+                    <div className="center-wrap" >
+                        <div className="section text-center">
+                        <h4 
+                        
+                        className="h4-for-forms">{header}</h4>
+
+                        <div className="form-group mt-2">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={productInfo.name || ""}
+                                            onChange={handleChange}
+                                            className="form-style text-black"
+                                            placeholder="Name"
+                                            />
+                                            <i className="input-icon uil uil-at">
+                                                <BadgeIcon></BadgeIcon>
+                                            </i>
+                                                
+                                        </div>
+                                <div className="form-group mt-2">
+                                    <input
+                                        type="text"
+                                        name="price"
+                                        value={productInfo.price || ""}
+                                        onChange={handleChange}
+                                        className="form-style text-black"
+                                        placeholder="Price"
+                                    />
+                                    <i className="input-icon uil uil-at">
+                                                <SellIcon></SellIcon>
+                                            </i>
+                                    
+                                </div>
+                                <div className="form-group mt-2">
+                                <input
+                                            type="text"
+                                            name="description"
+                                            value={productInfo.description || ""}
+                                            onChange={handleChange}
+                                            className="form-style text-black"
+                                            placeholder="Description"
+                                        />
+                                        <i className="input-icon uil uil-at">
+                                                <DescriptionIcon></DescriptionIcon>
+                                            </i>
+                                </div>
+                                <div className="form-group mt-2">
+                                <input
+                                        type="text"
+                                        name="url"
+                                        value={productInfo.url || ""}
+                                        onChange={handleChange}
+                                        className="form-style text-black"
+                                        placeholder="Website Url"
+                                    />
+                                    <i className="input-icon uil uil-at">
+                                                <LinkIcon></LinkIcon>
+                                            </i>
+                                </div>
+                                <div className="form-group mt-2">
+                                <input 
+                                        type="file" 
+                                        name="image" 
+                                        accept="image/*"
+                                        onChange={handleFileSelect}
+                                        className="form-style text-black"
+                                        placeholder="Product Image"
+                                    />
+                                    <i className="input-icon uil uil-at">
+                                                <AttachFileIcon></AttachFileIcon>
+                                            </i>
+                                </div>
+                        
+
+                                <a href="#" type="submit"className="secondary-button" onClick={handleSubmit}>Submit</a>
+         
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
     );
 }
 export default ProductForm;
