@@ -820,3 +820,26 @@ h6 span{
 .profile-box {
   box-shadow: 0 0 50px rgb(0, 0, 0);
 }
+/* src/styles.css */
+[data-amplify-authenticator] {
+  background-color: #1f2029; /* Background color */
+  color: white; /* Text color */
+  --amplify-components-authenticator-state-inactive-background-color:  #1f2029;
+  --amplify-components-authenticator-router-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
+  --amplify-components-button-primary-background-color: #102770;
+ 
+}
+
+/* Customize child elements within the Amplify Authenticator */
+[data-amplify-authenticator] h1,
+[data-amplify-authenticator] h2,
+[data-amplify-authenticator] p {
+  color: white; /* Text color */
+}
+
+[data-amplify-authenticator] input {
+  background-color: #4b4d5b; /* Input field background color */
+  color: white; /* Input field text color */
+  border: 1px solid white; /* Input field border */
+}
