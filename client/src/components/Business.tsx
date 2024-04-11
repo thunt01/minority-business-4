@@ -28,9 +28,7 @@ const Business = () => {
     const listItems = results.map((product: any) => (
         <li key={product.Id}>
             <a href={`/product/${product.ProductID}`}>
-                <div>{product.Name}</div>
-                <div>{product.Price}</div>
-                <div>{product.Description}</div> 
+                <div>{product.Name}</div> 
             </a> 
         </li>
     ));
@@ -57,14 +55,14 @@ const Business = () => {
                         {businessDescription}
                     </div>
                     <div className="business-contact">
-                        <h2>Check us out here:</h2>
+                        <h2>Contact us here:</h2>
                         {businessEmail}
                     </div>
                 </div>
-                <div className='insights'>
+                {/* <div className='insights'>
                     <h2>Business Insights</h2>
-                    <img src={require('../assets/Customer Actions from GMB.png')}></img>
-                </div>
+                    <img src={require('../assets/Customer Actions from GMB.png')} alt=""></img>
+                </div> */}
             </div>
         </div>
     );

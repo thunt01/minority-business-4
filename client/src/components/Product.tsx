@@ -32,7 +32,7 @@ const Product = () => {
             <Navbar></Navbar>
             <Search></Search>
             <div className='product'> 
-                <div>
+                <div className='product-img'>
                     <h1>{productName}</h1>
                     <img src={productImage ? "https://culture-cart-s3-images.s3.amazonaws.com/" + productImage : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={"No Image"} height="150" />
                 </div>

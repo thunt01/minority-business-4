@@ -59,7 +59,7 @@ const Team = () => {
       </div>
       
       <h2>{data.title}</h2>
-      <p>{data.text}</p>
+      {/* <p>{data.text}</p> */}
     </div>
   ))}
 </div>

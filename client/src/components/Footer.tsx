@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="footer-wrapper">
       <div className="footer-section-one">
         <div className="footer-logo-container">
-          <img src={Logo} alt="" />
+          <img className="footer-img" src={Logo} alt="" />
         </div>
         <div className="footer-icons">
           <BsTwitter />
@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="footer-section-columns">
           <span><a href="/">Home</a></span>
           <span><a href="/#about-us">About</a></span>
-          <span>Team</span>
+          <span><a href="/#team">Team</a></span>
           <span>Contact</span>
         
           

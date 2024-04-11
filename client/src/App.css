@@ -14,6 +14,9 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
+h1 {
+  color: white !important;
+}
 h4 {
   font-weight: 600;
 }
@@ -75,8 +78,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   min-height: 90px;
-  background: transparent
-  
+  border-radius: 50px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+  margin: 20px;
 }
 .navbar-menu-container {
   display: none;
@@ -88,6 +92,13 @@ nav {
   font-size: 1.1rem;
   font-weight: 600;
 }
+.card {
+  box-shadow: 0 10px 10px rgb(0, 0, 0);
+  border-radius: 10px;
+}
+.sign-out-icon {
+  color:white !important;
+}
 .primary-button {
   padding: 0.9rem 1.75rem;
   background-color: #000080;
@@ -98,6 +109,7 @@ nav {
   cursor: pointer;
   font-weight: 600;
   transition: 0.2s;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .navbar-cart-icon {
   font-size: 1.15rem;
@@ -150,8 +162,9 @@ nav {
   
 }
 .secondary-button {
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
   padding: 0.8rem 1.2rem;
-  background-color: #CC5500;
+  background-color: #c1560a;
   outline: none;
   border: none;
   border-radius: 5rem;
@@ -164,9 +177,9 @@ nav {
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
+  text-decoration: none;
+
 }
-
-
 
 .secondary-button svg {
   
@@ -258,15 +271,20 @@ nav {
   padding: 0.5rem 1rem;
 }
 .footer-wrapper {
-  margin: 6rem 0rem;
+  margin-top: 6rem;
   display: flex;
-  margin-top: 10rem;
+  border: 20px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+}
+.footer-img {
+  max-width: 110px;
+  margin: 2.5rem;
 }
 .footer-logo-container {
   max-width: 110px;
 }
 .footer-icons {
-  margin-top: 2.5rem;
+  margin: 2.5rem;
 }
 .footer-icons svg {
   font-size: 1.5rem;
@@ -280,6 +298,7 @@ nav {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  margin: 2.5rem;
 }
 .footer-section-columns {
   display: flex;
@@ -351,6 +370,7 @@ nav {
   border-radius: 1rem;
   color: #505050;
   margin: 1rem 2rem;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .work-section-info h2 {
   margin: 1rem 0rem;
@@ -397,9 +417,11 @@ nav {
   border-radius: 1rem;
   color: #000000;
   margin: 1rem 2rem;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .team-section-info h2 {
   margin: 1rem 0rem;
+  color: #000000 !important;
 }
 .team-section-bottom {
   margin-top: 5rem;
@@ -528,6 +550,9 @@ nav {
     max-width: 95vw;
   }
 }
+.footer-section-columns span a:link {
+  text-decoration: none;
+}
 @media (max-width: 600px) {
   .home-bannerImage-container,
   .about-background-image-container {
@@ -562,7 +587,6 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
-
 h6 span{
   padding: 0 20px;
   text-transform: uppercase;
@@ -620,42 +644,26 @@ h6 span{
   transform: translateX(44px) rotate(-270deg);
 }
 
-
+.section.text-center {
+  color:white;
+}
 .card-3d-wrap {
   position: relative;
-  width: 500px;
-  max-width: 100%;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 60px;
-  
-  
+  box-shadow: 0 0 50px rgb(0, 0, 0);
 }
-.card-3d-wrapper {
-  width: 150%;
-  height: 150%;
-  position:absolute;    
-  top: 0;
-  left: 0;  
+.card-3d-wrapper {  
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: all 600ms ease-out; 
-  
+  padding-top: 100px;
 }
 .card-front, .card-back {
-  width: 100%;
-  height: 100%;
-  background-color: #94bad5;
-  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: 300%;
-  position: absolute;
   border-radius: 6px;
-  left: 0;
-  top: 0;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
@@ -668,11 +676,9 @@ h6 span{
   transform: rotateY(180deg);
 }
 .center-wrap{
-  position: absolute;
   width: 100%;
+  height: 100px;
   padding: 0 35px;
-  top: 50%;
-  left: 0;
   transform: translate3d(0, -50%, 35px) perspective(100px);
   z-index: 20;
   display: block;
@@ -684,6 +690,7 @@ h6 span{
   display: block;
     margin: 0;
     padding: 0;
+    
 }
 .form-style {
   padding: 13px 20px;
@@ -809,9 +816,6 @@ h6 span{
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
 
-
-
-
 .logo {
   position: absolute;
   top: 30px;
@@ -824,4 +828,31 @@ h6 span{
   height: 26px;
   width: auto;
   display: block;
+}
+
+.profile-box {
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+}
+/* src/styles.css */
+[data-amplify-authenticator] {
+  background-color: #1f2029; /* Background color */
+  color: white; /* Text color */
+  --amplify-components-authenticator-state-inactive-background-color:  #1f2029;
+  --amplify-components-authenticator-router-box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+
+  --amplify-components-button-primary-background-color: #102770;
+ 
+}
+
+/* Customize child elements within the Amplify Authenticator */
+[data-amplify-authenticator] h1,
+[data-amplify-authenticator] h2,
+[data-amplify-authenticator] p {
+  color: white; /* Text color */
+}
+
+[data-amplify-authenticator] input {
+  background-color: #4b4d5b; /* Input field background color */
+  color: white; /* Input field text color */
+  border: 1px solid white; /* Input field border */
 }

@@ -57,20 +57,14 @@ const ProductRow = (props) => {
     .then((res) => console.log(res));
     setInWishlist(false);
   }
-
-  // const WishlistAdd = (
-  //   <button type="button" className="btn btn-outline-success ms-5" onClick={handleAddWishlist}>
-  //     <WishlistAddIcon></WishlistAddIcon>
-  //   </button>
-  // )
   const WishlistAdd = (
-    <button type="button" className="btn btn-outline-success ms-5" onClick={handleAddWishlist}>
+    <button type="button" className="btn btn-outline-success" onClick={handleAddWishlist}>
       <WishlistAddIcon/>
     </button>
   )
   const WishlistRemove = (
-    <button type="button" className="btn btn-outline-danger ms-5" onClick={handleRemoveWishlist}>
-      <WishlistRemoveIcon></WishlistRemoveIcon>
+    <button type="button" className="btn btn-outline-danger" onClick={handleRemoveWishlist}>
+      <WishlistRemoveIcon/>
     </button>
   )
 
