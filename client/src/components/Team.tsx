@@ -3,10 +3,10 @@ import PickMeals from "../assets/pick-meals-image.png";
 import ChooseMeals from "../assets/choose-image.png";
 import DeliveryMeals from "../assets/delivery-image.png";
 import THunt from "../assets/chart_with_upwards_trend.png"
-import MSan from "../assets/crossed_fingers.png"
+import MSan from "../assets/FullSizeRender.png"
 import MObi from "../assets/ObiHeadshoot.png"
 import AHud from "../assets/AzHud.png"
-import AMat from "../assets/Professional Headshot.png"
+import AMat from "../assets/FullSizeRender (1).png"
 
 const Team = () => {
     const teamInfoData = [
@@ -57,6 +57,7 @@ const Team = () => {
           style={{ width: '250px', height: '230px', marginRight: '10px', marginLeft:'10px', borderRadius: '30px'}}
         />
       </div>
+      
       <h2>{data.title}</h2>
       <p>{data.text}</p>
     </div>
