@@ -198,6 +198,28 @@ app.get('/wishlist/:user_id/:product_id', (req, res) => {
     })
 });
 
+app.get('/recentlyViewed', (req, res) => {
+    con.connect(function(err) {
+        const sql = `SELECT * FROM RecentlyViewed LIMIT 4;`;
+        con.query(sql, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.send(result);
+        })
+    })
+});
+// 
+
+app.get('/wishlist/:user_id/', (req, res) => {
+    con.connect(function(err) {
+        //const sql = `SELECT * FROM Wishlists WHERE CognitoAccountID = '${req.params.user_id}';`;
+        const sql = `SELECT * FROM Wishlists INNER JOIN Products ON Wishlists.ProductID= Products.ProductID WHERE Wishlists.CognitoAccountID = '${req.params.user_id}';`;
+        con.query(sql, function(err, result, fields) {
+            if (err) res.send(err);
+            if (result) res.send(result); console.log(result)
+        })
+    })
+});
+
 
 app.get('/business/:business_id', (req, res) => {
     con.connect(function(err) {
