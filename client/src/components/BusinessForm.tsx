@@ -43,7 +43,6 @@ function BusinessForm() {
                 });
             } else {
                 setBusinessInfo({name: "", email: "", description:"", url:"", businessImageName: "", cognitoAccountID: user_details.sub})
-                //setBusinessInfo(values => ({...values, cognitoAccountID: user_details.sub}))
             }
         }
         checkExistingBusiness();
