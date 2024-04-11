@@ -89,7 +89,6 @@ const Business = () => {
                     <img src={require('../assets/Customer Actions from GMB.png')} alt=""></img>
                 </div> */}
             </div>
-            {isCurrentUsersBusiness ? addProductButton: addProductButton}
         </div>
     );
 }
