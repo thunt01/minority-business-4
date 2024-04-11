@@ -59,10 +59,10 @@ const Business = () => {
                         {businessEmail}
                     </div>
                 </div>
-                <div className='insights'>
+                {/* <div className='insights'>
                     <h2>Business Insights</h2>
                     <img src={require('../assets/Customer Actions from GMB.png')} alt=""></img>
-                </div>
+                </div> */}
             </div>
         </div>
     );
