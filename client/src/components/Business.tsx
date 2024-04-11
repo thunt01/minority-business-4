@@ -3,8 +3,14 @@ import {useParams} from "react-router-dom";
 import Navbar from './Navbar';
 import Search from './Search';
 import './Business.css';
+import { fetchUserAttributes } from 'aws-amplify/auth';
+import WishlistAddIcon from './WishlistAddIcon';
+
 
 const Business = () => {
+    const [businessOwnerID, setBusinessOwnerID] = useState("");
+    const [isCurrentUsersBusiness, setIsCurrentUsersBusiness] = useState(false);
+
     const [businessName, BusinessName] = useState("");
     const [businessDescription, setDescription] = useState("");
     const [businessURL, setURL] = useState("");
@@ -13,9 +19,16 @@ const Business = () => {
 
     const business_id = useParams().BusinessID;
     useEffect(() => {
-      fetch('/business/' + business_id)
-        .then((res) => res.json())
-        .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email); setURL(data.url);});
+        const checkUser = async () => {
+            fetch('/business/' + business_id)
+                .then((res) => res.json())
+                .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email); setURL(data.url); setBusinessOwnerID(data.ownerID)});
+                const user_details = await fetchUserAttributes();
+                if (user_details.sub == businessOwnerID ){
+                    setIsCurrentUsersBusiness(true)
+                }
+        }
+        checkUser();
     }, [business_id]);
 
     useEffect(() => {
@@ -32,6 +45,12 @@ const Business = () => {
             </a> 
         </li>
     ));
+//onClick={handleRemoveWishlist}
+    const addProductButton = (
+        <a href="/ProductForm" type="button" role="button" className="btn btn-outline-secondary mb-3">
+        <WishlistAddIcon/>
+        </a>
+    )
     
     return (
         <div>
@@ -45,13 +64,19 @@ const Business = () => {
                         </a>
                     </h1>
                     <div className='products-listed'>
-                        <h2>Products Listed</h2>
+                        <p className='row'>
+                        {isCurrentUsersBusiness ? addProductButton: addProductButton}
+                        <h2 className='col-m-10'>Products</h2> 
+                        </p>
+                        
+                        
                         {listItems}
                     </div>
                 </div>
                 <div className='business-info'>
                     <div className="business-description">
-                        <h2>About our business:</h2>
+
+                        <h2 >About our business:</h2>
                         {businessDescription}
                     </div>
                     <div className="business-contact">
@@ -64,6 +89,7 @@ const Business = () => {
                     <img src={require('../assets/Customer Actions from GMB.png')} alt=""></img>
                 </div> */}
             </div>
+            {isCurrentUsersBusiness ? addProductButton: addProductButton}
         </div>
     );
 }

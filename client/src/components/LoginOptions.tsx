@@ -1,8 +1,22 @@
 import Storefront from '../assets/storefront.png'
 import Browse from '../assets/browse.png'
 import Profile from '../assets/user-profile.png'
+import { fetchUserAttributes } from 'aws-amplify/auth';
+import React, { useState, useEffect } from "react";
 
-
+// function LoginOptions() {
+//   const [hasBusiness, setHasBusiness] = useState(false)
+//   useEffect(() => { 
+//     const checkExistingBusiness= async () => {
+//         const user_details = await fetchUserAttributes();
+//         if (user_details['custom:hasBusiness']){
+//           setHasBusiness(true)
+//         }
+//     }
+//     checkExistingBusiness();
+// }, []);
+//   return hasBusiness ? "/BusinessForm": "/BusinessForm"
+// }
 
 export const MenuList = [
     {

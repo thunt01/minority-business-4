@@ -182,7 +182,7 @@ function BusinessForm() {
                     name="name"
                     value={businessInfo.name || ""}
                     onChange={handleChange}
-                    className="form-style"
+                    className="form-style  text-black"
                     placeholder="Business Name"
                 />
                     <i className="input-icon uil uil-at">
@@ -195,7 +195,7 @@ function BusinessForm() {
                     name="email"
                     value={businessInfo.email || ""}
                     onChange={handleChange}
-                    className="form-style"
+                    className="form-style text-black"
                     placeholder="Contact Email"
                     />
                         <i className="input-icon uil uil-lock-alt">
@@ -208,7 +208,7 @@ function BusinessForm() {
                     name="url"
                     value={businessInfo.url || ""}
                     onChange={handleChange}
-                    className="form-style"
+                    className="form-style  text-black"
                     placeholder="Website Url"
                 />
                         <i className="input-icon uil uil-lock-alt">
@@ -221,7 +221,7 @@ function BusinessForm() {
                     name="description"
                     value={businessInfo.description || ""}
                     onChange={handleChange}
-                    className="form-style"
+                    className="form-style  text-black"
                     placeholder="Description"
                 />
                         <i className="input-icon uil uil-lock-alt">

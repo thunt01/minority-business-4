@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
-import './Forms.css'
+//import './Forms.css'
 import {fetchUserAttributes,} from 'aws-amplify/auth';
 //import { ImportsNotUsedAsValues } from "typescript";
 

@@ -226,7 +226,7 @@ app.get('/business/:business_id', (req, res) => {
         //combine businesses + business
         con.query(`SELECT * FROM main.Businesses WHERE BusinessID = ` + req.params.business_id + `;`, function(err, result, fields) {
             if (err) res.send(err);
-            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL});
+            if (result) res.json({ name: result[0].Name, description: result[0].Description, email: result[0].Email, url: result[0].URL, ownerID: result[0].CognitoAccountID});
         });
 })});
 
