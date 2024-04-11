@@ -14,7 +14,7 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
-h1, h2 {
+h1 {
   color: white !important;
 }
 h4 {
@@ -421,6 +421,7 @@ nav {
 }
 .team-section-info h2 {
   margin: 1rem 0rem;
+  color: #000000 !important;
 }
 .team-section-bottom {
   margin-top: 5rem;
