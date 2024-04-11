@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-items: center;
-    border: 2rem;
 }
 
-.product-info {
+.product-info, .product-img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 50px;
+    padding: 100px;
     justify-items: left;
     color: white;
+    box-shadow: 0px 10px 10px #000000;
 }

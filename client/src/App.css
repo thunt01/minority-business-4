@@ -109,6 +109,7 @@ nav {
   cursor: pointer;
   font-weight: 600;
   transition: 0.2s;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .navbar-cart-icon {
   font-size: 1.15rem;
@@ -161,6 +162,7 @@ nav {
   
 }
 .secondary-button {
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
   padding: 0.8rem 1.2rem;
   background-color: #c1560a;
   outline: none;
@@ -176,9 +178,8 @@ nav {
   justify-content: center;
   margin-top: 1rem;
   text-decoration: none;
+
 }
-
-
 
 .secondary-button svg {
   
@@ -270,15 +271,20 @@ nav {
   padding: 0.5rem 1rem;
 }
 .footer-wrapper {
-  margin: 6rem 0rem;
+  margin-top: 6rem;
   display: flex;
-  margin-top: 10rem;
+  border: 20px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+}
+.footer-img {
+  max-width: 110px;
+  margin: 2.5rem;
 }
 .footer-logo-container {
   max-width: 110px;
 }
 .footer-icons {
-  margin-top: 2.5rem;
+  margin: 2.5rem;
 }
 .footer-icons svg {
   font-size: 1.5rem;
@@ -292,6 +298,7 @@ nav {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  margin: 2.5rem;
 }
 .footer-section-columns {
   display: flex;
@@ -363,6 +370,7 @@ nav {
   border-radius: 1rem;
   color: #505050;
   margin: 1rem 2rem;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .work-section-info h2 {
   margin: 1rem 0rem;
@@ -409,6 +417,7 @@ nav {
   border-radius: 1rem;
   color: #000000;
   margin: 1rem 2rem;
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 .team-section-info h2 {
   margin: 1rem 0rem;
@@ -539,6 +548,9 @@ nav {
   .App {
     max-width: 95vw;
   }
+}
+.footer-section-columns span a:link {
+  text-decoration: none;
 }
 @media (max-width: 600px) {
   .home-bannerImage-container,
