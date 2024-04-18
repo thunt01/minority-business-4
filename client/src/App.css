@@ -647,6 +647,9 @@ h6 span{
 .section.text-center {
   color:white;
 }
+.section button {
+  width: 100%;
+}
 .card-3d-wrap {
   position: relative;
   width: 600px;

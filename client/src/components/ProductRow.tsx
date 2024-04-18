@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 import "./ProductRow.css"
 import WishlistRemoveIcon from './WishlistRemoveIcon';
 import WishlistAddIcon from './WishlistAddIcon';
-import {
-  fetchUserAttributes,
-} from 'aws-amplify/auth';
-//import 'bootstrap/dist/css/bootstrap.css';
+import {fetchUserAttributes} from 'aws-amplify/auth';
 
-// we working here
 const ProductRow = (props) => {
 
   const [inWishlist, setInWishlist] = useState(false);
@@ -26,7 +22,7 @@ const ProductRow = (props) => {
       })
     }
     checkInWishlist();
-
+  // eslint-disable-next-line
   }, []);
 
   const handleAddWishlist = async () => {
@@ -72,7 +68,7 @@ const ProductRow = (props) => {
     <div>
         <div className="row product">
           <a href={`/product/${props.props.ProductID}`} className="col-md-2 product-image">
-              <img src={props.props.ImageName ? "https://culture-cart-s3-images.s3.amazonaws.com/" + props.props.ImageName : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={"No Image"} height="150" />
+              <img src={props.props.ImageName ? "https://culture-cart-s3-images.s3.amazonaws.com/" + props.props.ImageName : "https://culture-cart-s3-images.s3.amazonaws.com/blankimage.jpeg"} alt={""} height="150" />
           </a>
           <a href={`/product/${props.props.ProductID}`} className="col-md-8 product-detail box">
               <h4>{props.props.Name}</h4>

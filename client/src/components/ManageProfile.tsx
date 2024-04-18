@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import {  createTheme, ThemeProvider } from '@mui/material/styles';
-import { palette } from '@mui/system';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,9 +14,7 @@ import { fetchUserAttributes } from 'aws-amplify/auth';
 import ProductRow from './ProductRow';
 import ProductBox from './ProductBox';
 
-
 const defaultTheme = createTheme();
-
 
 export default function Profile() {
   const [aboutMe, setAboutMe] = React.useState("Enter information about yourself...");
@@ -66,8 +63,8 @@ export default function Profile() {
         console.log('Error fetching user:', error);
       }
     };
-    checkUser(); // Start checking user sign-in status
-  }, []); // Empty dependency array to run the effect only once after component mount
+    checkUser();
+  }, []);
 
   
   const recentlyViewedItems = recentlyViewed.map((product: any) => (
@@ -76,8 +73,6 @@ export default function Profile() {
   const wishlistItems = userWishlist.map((product: any) => (
       <ProductRow props={product}></ProductRow>
   ));
-  //console.log(userWishlist)
-  //background-color: #102770;
 
   return (
     <ThemeProvider theme={defaultTheme}>

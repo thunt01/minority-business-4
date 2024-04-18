@@ -1,8 +1,5 @@
-
-
-import React, {useState} from "react";
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
-//import Favicon from "react-favicon";
 import Landing from './components/Landing'
 import Profile from './components/ManageProfile'
 import Product from './components/Product';
@@ -16,15 +13,8 @@ import SelectProducts from "./components/SelectProducts";
 import ConfigBusinessPromo from "./components/ConfigBusinessPromo";
 
 function App(){
-
-    const [BusinessName, setBusinessName] = useState('');
-
-    
-
-
     return (    
         <div className='App'>
-                
                 <Routes>
                     <Route path="/" element={ <Landing /> }/>
                     <Route path="/Login" element={<Login />} />
@@ -38,11 +28,8 @@ function App(){
                     <Route path = "/ConfigBusinessPromo" element={<ConfigBusinessPromo/>}/>
                     <Route path = "/ProfilePage" element={<Profile/>}/>
                 </Routes>
-
-                
-                
         </div>
     )
-}
+};
 
 export default App;

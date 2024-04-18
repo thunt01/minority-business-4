@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import '../App.css'
-import Logo from "../assets/Logo.svg"
-import CultureCartLogo from "../assets/CultureCartLogo.png"
-import { BsCart2 } from "react-icons/bs";
+import '../App.css';
+import CultureCartLogo from "../assets/CultureCartLogo.png";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -14,10 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { Link } from 'react-router-dom';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 
@@ -52,7 +47,6 @@ const Navbar = () => {
       <nav>
         <div className="nav-logo-container">
             <img style= {{width: 100, height: 100}}src={CultureCartLogo} alt=""/>
-            
         </div>
         <div className="navbar-links-container">
           <a href="/">Home</a>
@@ -86,14 +80,11 @@ const Navbar = () => {
                 </ListItem>
               ))}
             </List>
-            <Divider />
+            <Divider/>
           </Box>
         </Drawer>
       </nav>
     );
   };
-  
- 
-
 
 export default Navbar;

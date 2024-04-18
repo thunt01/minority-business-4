@@ -2,18 +2,12 @@ import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import './Carousel.css'
-//import ExampleCarouselImage from 'components/ExampleCarouselImage';
-
-
-// we need to figure out an example image situation 
 
 const FeaturedCarousel = () => {
 
     const [results, setFeatures] = useState([]);
 
-
     useEffect(() => {
-        // Make the API call when the component mounts
         fetch('/business')
         .then((res) => res.json())
         .then((data) => {
@@ -24,7 +18,6 @@ const FeaturedCarousel = () => {
 
     }, []);
 
-    //const results = features; // we'll turn this into an array of objects for the carousel. 
     const divStyle = {
         color: "white",
         textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
@@ -32,7 +25,7 @@ const FeaturedCarousel = () => {
 
     const carouselReact = results.map((business: any, index: number) => (   
         <Carousel.Item>
-            <img className="d-block w-100 carousel-img" src={"https://culture-cart-s3-images.s3.amazonaws.com/" + business.ImageName}></img>
+            <img className="d-block w-100 carousel-img" alt="" src={"https://culture-cart-s3-images.s3.amazonaws.com/" + business.ImageName}></img>
             <Carousel.Caption  style={divStyle}>
                 <h3 >{business.Name}</h3>
                 <p >{business.Description}</p>
@@ -40,10 +33,9 @@ const FeaturedCarousel = () => {
         </Carousel.Item>
     ));
 
-    return (
-        
+    return (    
         <Carousel>{carouselReact}</Carousel>
-      );
+    );
  
 }
 

@@ -24,12 +24,12 @@ const Business = () => {
                 .then((res) => res.json())
                 .then((data) => {BusinessName(data.name); setDescription(data.description); setEmail(data.email); setURL(data.url); setBusinessOwnerID(data.ownerID)});
                 const user_details = await fetchUserAttributes();
-                if (user_details.sub == businessOwnerID ){
+                if (user_details.sub === businessOwnerID ){
                     setIsCurrentUsersBusiness(true)
                 }
         }
         checkUser();
-    }, [business_id]);
+    }, [business_id, businessOwnerID]);
 
     useEffect(() => {
         fetch('/business/products/' + business_id)
@@ -45,7 +45,7 @@ const Business = () => {
             </a> 
         </li>
     ));
-//onClick={handleRemoveWishlist}
+
     const addProductButton = (
         <a href="/ProductForm" type="button" role="button" className="btn btn-outline-secondary mb-3">
         <WishlistAddIcon/>
@@ -84,10 +84,6 @@ const Business = () => {
                         {businessEmail}
                     </div>
                 </div>
-                {/* <div className='insights'>
-                    <h2>Business Insights</h2>
-                    <img src={require('../assets/Customer Actions from GMB.png')} alt=""></img>
-                </div> */}
             </div>
         </div>
     );

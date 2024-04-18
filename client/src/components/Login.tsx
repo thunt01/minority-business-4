@@ -45,18 +45,16 @@ export default function Login() {
           sendReq(JSON.parse(JSON.stringify({ Username: user_details.given_name, Email: user_details.email})));
         } else {
           console.log('User not signed in. Trying again...');
-          // Retry after a short delay
-          setTimeout(checkUserSignIn, 3000); // Retry after 3 seconds
+          setTimeout(checkUserSignIn, 3000);
         }
       } catch (error) {
         console.log('Error fetching user:', error);
         console.log('User not signed in. Trying again...');
-          // Retry after a short delay
-          setTimeout(checkUserSignIn, 3000); // Retry after 3 seconds
+        setTimeout(checkUserSignIn, 3000);
       }
     };
-    checkUserSignIn(); // Start checking user sign-in status
-  }, []); // Empty dependency array to run the effect only once after component mount
+    checkUserSignIn();
+  }, []);
 
    
 
@@ -66,9 +64,6 @@ export default function Login() {
     <Authenticator>
       {({ signOut, user }) => (
           <main className="container">
-            {/* <div className="banner" style={{ backgroundColor: '#DB920C  ', padding: '10px 0', position: 'relative' }}>
-          Add a banner behind the user-info container
-            </div> */}
             <div className="user-info" style={{ position: 'relative', zIndex: 1 }}>
             <h1 style={{ display: 'flex', alignItems: 'center' }}>
             Hello {currentUser}

@@ -50,9 +50,7 @@ const Search = () => {
                 <FaSearch id="search-icon" />
                 <ul>
                     <form id="search">
-                        
                         <input
-                            
                             type="search"
                             placeholder="Search product..."
                             value={searchTerm}
@@ -60,7 +58,6 @@ const Search = () => {
                             onKeyDown={handleEnter}
                         />
                     </form>
-                    
                 </ul>
             </div>
             {searchTerm && (

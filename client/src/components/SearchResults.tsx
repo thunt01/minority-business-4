@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {useParams} from "react-router-dom";
 import {SearchFn} from './Search';
 import React from "react";
@@ -36,11 +36,11 @@ const SearchResults = () => {
         backgroundColor: state.isFocused ? '#ffa500' : 'transparent',
         color: state.isFocused ? '#fff' : '#333',
       }),
-      indicatorsContainer: (provided, state) => ({
+      indicatorsContainer: (provided) => ({
         ...provided,
         height: '25px',
       }),
-      container: (provided, state) => ({
+      container: (provided) => ({
         ...provided,
         width: '20%',
       }),

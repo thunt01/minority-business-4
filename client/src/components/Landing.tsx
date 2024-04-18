@@ -9,7 +9,7 @@ import Navbar from "./Navbar";
 function Landing(){
     return (    
         <div className='Landing'>
-            <Navbar />
+            <Navbar/>
             <Home/>
             <About/>
             <Work/>

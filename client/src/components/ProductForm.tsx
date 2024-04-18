@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Navbar from './Navbar';
-//import './Forms.css'
 import {fetchUserAttributes,} from 'aws-amplify/auth';
 import SellIcon from '@mui/icons-material/Sell';
 import BadgeIcon from '@mui/icons-material/Badge';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LinkIcon from '@mui/icons-material/Link';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-//import { ImportsNotUsedAsValues } from "typescript";
 
-//form checking (correct types, correct length, '/', "")
-//*Edit so products also have foreign key: business id
-//*Add photos
 function ProductForm({ productID }) {
 
     const header = productID !==-1 ? "Update Product Information" : "Create New Product";
     const [productInfo, setProductInfo] = useState({name: "", price: "", description:"", url:"", cognitoAccountID: "", productImageName: ""});
-    //const [businessID, setBusinessID] = useState("");
-    const [previewFile, setPreviewFile] = useState("");
     const [productPhoto, setProductPhoto] = useState();
-    //const [updating, setUpdating] = useState(false);
 
     useEffect(() => { 
         const checkExistingProduct= async () => {
@@ -30,10 +22,8 @@ function ProductForm({ productID }) {
                 .then((res) => res.json())
                 .then((data) => {
                     setProductInfo(data)
-                    setPreviewFile("https://culture-cart-s3-images.s3.amazonaws.com/" + data.productImageName)
                 });
             } else {
-                //const user_details = await fetchUserAttributes();
                 setProductInfo(values => ({...values, cognitoAccountID: user_details.sub}))
             }
         }
@@ -46,8 +36,7 @@ function ProductForm({ productID }) {
         setProductInfo(values => ({...values, [name]: value}))
     }
 
-    const handleFileSelect = (event) => {        
-        setPreviewFile(URL.createObjectURL(event.target.files[0]));
+    const handleFileSelect = (event) => {
         setProductPhoto(event.target.files[0])
     }
 
@@ -112,120 +101,101 @@ function ProductForm({ productID }) {
     }
 
     return (
+        <div className="App">
+            <div>
+            <Navbar></Navbar>
+            <a href="https://front.codes/" className="logo" target="_blank"></a>
 
-  
-
-    <div className="App">
-        <div>
-        <Navbar></Navbar>
-          <a href="https://front.codes/" className="logo" target="_blank"></a>
-
-        <div className="section " >
-        <div className="container">
-        <div className="row full-height justify-content-center">
-            <div className="col-12 text-center align-self-center py-5">
-            <div className="section pb-0 pt-0 pt-sm-2 text-center">
-                
-                    
-                <div className="card-3d-wrap mx-auto">
-                <div className="card-3d-wrapper">
-                    <div className="card-front">
-                    <div className="center-wrap" >
-                        <div className="section text-center">
-                        <h4 
-                        
-                        className="h4-for-forms">{header}</h4>
-
-                        <div className="form-group mt-2">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={productInfo.name || ""}
-                                            onChange={handleChange}
-                                            className="form-style text-black"
-                                            placeholder="Name"
+            <div className="section " >
+                <div className="container">
+                    <div className="row full-height justify-content-center">
+                        <div className="col-12 text-center align-self-center py-5">
+                            <div className="section pb-0 pt-0 pt-sm-2 text-center">
+                                <div className="card-3d-wrap mx-auto">
+                                <div className="card-3d-wrapper">
+                                    <div className="card-front">
+                                    <div className="center-wrap" >
+                                        <div className="section text-center">
+                                        <h4 className="h4-for-forms">{header}</h4>
+                                        <div className="form-group mt-2">
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                value={productInfo.name || ""}
+                                                onChange={handleChange}
+                                                className="form-style text-black"
+                                                placeholder="Name"
                                             />
                                             <i className="input-icon uil uil-at">
                                                 <BadgeIcon></BadgeIcon>
                                             </i>
-                                                
+                                                                
                                         </div>
-                                <div className="form-group mt-2">
-                                    <input
-                                        type="text"
-                                        name="price"
-                                        value={productInfo.price || ""}
-                                        onChange={handleChange}
-                                        className="form-style text-black"
-                                        placeholder="Price"
-                                    />
-                                    <i className="input-icon uil uil-at">
+                                        <div className="form-group mt-2">
+                                            <input
+                                                type="text"
+                                                name="price"
+                                                value={productInfo.price || ""}
+                                                onChange={handleChange}
+                                                className="form-style text-black"
+                                                placeholder="Price"
+                                            />
+                                            <i className="input-icon uil uil-at">
                                                 <SellIcon></SellIcon>
                                             </i>
-                                    
-                                </div>
-                                <div className="form-group mt-2">
-                                <input
-                                            type="text"
-                                            name="description"
-                                            value={productInfo.description || ""}
-                                            onChange={handleChange}
-                                            className="form-style text-black"
-                                            placeholder="Description"
-                                        />
-                                        <i className="input-icon uil uil-at">
+                                            
+                                        </div>
+                                        <div className="form-group mt-2">
+                                            <input
+                                                type="text"
+                                                name="description"
+                                                value={productInfo.description || ""}
+                                                onChange={handleChange}
+                                                className="form-style text-black"
+                                                placeholder="Description"
+                                            />
+                                            <i className="input-icon uil uil-at">
                                                 <DescriptionIcon></DescriptionIcon>
                                             </i>
-                                </div>
-                                <div className="form-group mt-2">
-                                <input
-                                        type="text"
-                                        name="url"
-                                        value={productInfo.url || ""}
-                                        onChange={handleChange}
-                                        className="form-style text-black"
-                                        placeholder="Website Url"
-                                    />
-                                    <i className="input-icon uil uil-at">
+                                        </div>
+                                        <div className="form-group mt-2">
+                                            <input
+                                                type="text"
+                                                name="url"
+                                                value={productInfo.url || ""}
+                                                onChange={handleChange}
+                                                className="form-style text-black"
+                                                placeholder="Website Url"
+                                            />
+                                            <i className="input-icon uil uil-at">
                                                 <LinkIcon></LinkIcon>
                                             </i>
-                                </div>
-                                <div className="form-group mt-2">
-                                <input 
-                                        type="file" 
-                                        name="image" 
-                                        accept="image/*"
-                                        onChange={handleFileSelect}
-                                        className="form-style text-black"
-                                        placeholder="Product Image"
-                                    />
-                                    <i className="input-icon uil uil-at">
+                                        </div>
+                                        <div className="form-group mt-2">
+                                            <input 
+                                                type="file" 
+                                                name="image" 
+                                                accept="image/*"
+                                                onChange={handleFileSelect}
+                                                className="form-style text-black"
+                                                placeholder="Product Image"
+                                            />
+                                            <i className="input-icon uil uil-at">
                                                 <AttachFileIcon></AttachFileIcon>
                                             </i>
+                                        </div>
+                                        <a href="#" type="submit"className="secondary-button" onClick={handleSubmit}>Submit</a>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
-                        
-
-                                <a href="#" type="submit"className="secondary-button" onClick={handleSubmit}>Submit</a>
-         
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
-                </div>
             </div>
-        </div>
-        </div>
-
             </div>
-
-
-
-
-
-
-
         </div>
     );
 }

@@ -1,7 +1,4 @@
 import React from "react";
-import PickMeals from "../assets/pick-meals-image.png";
-import ChooseMeals from "../assets/choose-image.png";
-import DeliveryMeals from "../assets/delivery-image.png";
 import THunt from "../assets/chart_with_upwards_trend.png"
 import MSan from "../assets/FullSizeRender.png"
 import MObi from "../assets/ObiHeadshoot.png"
@@ -37,6 +34,7 @@ const Team = () => {
       },
 
     ];
+
     return (
       <div className="team-section-wrapper" id="team">
         <div className="team-section-top">
@@ -48,24 +46,22 @@ const Team = () => {
           </p>
         </div>
         <div className="team-section-bottom">
-  {teamInfoData.map((data) => (
-    <div className="team-section-info" key={data.title}>
-      <div className="info-boxes-img-container">
-        <img
-          src={data.image}
-          alt=""
-          style={{ width: '250px', height: '230px', marginRight: '10px', marginLeft:'10px', borderRadius: '30px'}}
-        />
-      </div>
-      
-      <h2>{data.title}</h2>
-      {/* <p>{data.text}</p> */}
-    </div>
-  ))}
-</div>
+          {teamInfoData.map((data) => (
+            <div className="team-section-info" key={data.title}>
+              <div className="info-boxes-img-container">
+                <img
+                  src={data.image}
+                  alt=""
+                  style={{ width: '250px', height: '230px', marginRight: '10px', marginLeft:'10px', borderRadius: '30px'}}
+                />
+              </div>
+              
+              <h2>{data.title}</h2>
+            </div>
+          ))}
+        </div>
       </div>
     );
-  };
-
+};
 
 export default Team;

@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./ProductRow.css"
 
-import {
-  fetchUserAttributes,
-} from 'aws-amplify/auth';
-//import 'bootstrap/dist/css/bootstrap.css';
-
-// we working here
 const ProductBox = (props) => {
 
   return (
